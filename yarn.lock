@@ -1393,6 +1393,7 @@ __metadata:
     jasmine-core: ~3.6.0
     jasmine-spec-reporter: ~5.0.0
     jest: ^26.6.3
+    prettier: ^2.1.2
     protractor: ~7.0.0
     rxjs: ~6.6.0
     ts-node: ~8.3.0
@@ -5554,6 +5555,15 @@ __metadata:
   version: 1.1.2
   resolution: "prelude-ls@npm:1.1.2"
   checksum: 189c969c92151b0de7a6e5d2ae0c4e50bbec5675cdd9fee3b7509d9d74b6416787ee36a8c12a07e8afb01454a8185b695b3395912484fa118e071fea45223b9b
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "prettier@npm:2.1.2"
+  bin:
+    prettier: bin-prettier.js
+  checksum: bedc24c568efbcfe45f255558900777e2fabb36bf28ed4c22d2456eb22dfb012d12e566a46472ea5b857a4e9f263e888f7e316527d00bb58188f1820b0b0031a
   languageName: node
   linkType: hard
 
