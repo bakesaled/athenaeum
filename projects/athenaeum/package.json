@@ -2,8 +2,11 @@
   "name": "athenaeum",
   "version": "0.0.1",
   "peerDependencies": {
+    "@angular/animations": "^10.2.3",
+    "@angular/cdk": "^10.2.7",
     "@angular/common": "^10.2.0",
-    "@angular/core": "^10.2.0"
+    "@angular/core": "^10.2.0",
+    "@angular/material": "^10.2.7"
   },
   "dependencies": {
     "tslib": "^2.0.0"

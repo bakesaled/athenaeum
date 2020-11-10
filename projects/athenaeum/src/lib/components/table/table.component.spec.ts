@@ -1,14 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AthTableComponent } from './table.component';
+import { MatTableModule } from '@angular/material/table';
 
 describe('AthTableComponent', () => {
-  let component: AthTableComponent;
-  let fixture: ComponentFixture<AthTableComponent>;
+  let component: AthTableComponent<any>;
+  let fixture: ComponentFixture<AthTableComponent<any>>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AthTableComponent],
+      imports: [MatTableModule],
     }).compileComponents();
   });
 
