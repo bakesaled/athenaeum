@@ -11,6 +11,11 @@
       "root": "projects/athenaeum",
       "sourceRoot": "projects/athenaeum/src",
       "prefix": "ath",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

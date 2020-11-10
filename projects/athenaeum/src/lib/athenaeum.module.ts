@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { AthenaeumComponent } from './athenaeum.component';
-
-
+import { AthTableComponent } from './components';
 
 @NgModule({
-  declarations: [AthenaeumComponent],
-  imports: [
-  ],
-  exports: [AthenaeumComponent]
+  declarations: [AthenaeumComponent, AthTableComponent],
+  imports: [],
+  exports: [AthenaeumComponent, AthTableComponent],
 })
-export class AthenaeumModule { }
+export class AthenaeumModule {}
