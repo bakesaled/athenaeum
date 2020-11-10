@@ -10,6 +10,12 @@
 # dependencies
 /node_modules
 
+# yarn
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+.pnp.*
+
 # profiling files
 chrome-profiler-events*.json
 speed-measure-plugin*.json
