@@ -5,5 +5,48 @@
     "packageManager": "yarn"
   },
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "athenaeum": {
+      "projectType": "library",
+      "root": "projects/athenaeum",
+      "sourceRoot": "projects/athenaeum/src",
+      "prefix": "ath",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/athenaeum/tsconfig.lib.json",
+            "project": "projects/athenaeum/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/athenaeum/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/athenaeum/tsconfig.lib.json",
+              "projects/athenaeum/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "athenaeum"
 }
