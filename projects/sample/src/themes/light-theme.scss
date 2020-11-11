@@ -1,0 +1,10 @@
+@import 'palette';
+
+$ath-primary: mat-palette($md-gray-palette);
+$ath-accent: mat-palette($md-orange-palette);
+
+// The warn palette is optional (defaults to red).
+$ath-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$ath-light-theme: mat-light-theme($ath-primary, $ath-accent, $ath-warn);
