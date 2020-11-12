@@ -27,13 +27,17 @@ jobs:
       with:
         node-version: '14.x'
     - name: Install dependencies
-      run: yarn --frozen-lockfile
+      run: yarn --immutable --immutable-cache
     - name: Lint
       run: yarn lint
-    - name: Test
+    - name: Test Lib
       run: yarn test:ci
-    - name: Build
+    - name: Test Sample
+      run: yarn test:ci:sample
+    - name: Build Lib
       run: yarn build:ci
+    - name: Build Sample
+      run: yarn build:ci:sample
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
