@@ -30,10 +30,8 @@ jobs:
       run: yarn
     - name: Lint
       run: yarn lint
-    - name: Test Lib
+    - name: Test
       run: yarn test:ci
-    - name: Test Sample
-      run: yarn test:ci:sample
     - name: Build Lib
       run: yarn build:ci
     - name: Build Sample
@@ -43,5 +41,6 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: dist # The folder the action should deploy.
+        FOLDER: dist/sample # The folder the action should deploy.
+        TARGET_FOLDER: athenaeum-sample
         CLEAN: true # Automatically remove deleted files from the deploy branch
