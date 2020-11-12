@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:ci": "yarn build --prod",
-    "build:ci:sample": "yarn build --prod --project=sample && cp index.html 404.html",
+    "build:ci:sample": "yarn build --prod --project=sample && cp dist/sample/index.html dist/sample/404.html",
     "test": "yarn ng test",
     "test:ci": "yarn test --runInBand --ci --logHeapUsage",
     "lint": "ng lint",
