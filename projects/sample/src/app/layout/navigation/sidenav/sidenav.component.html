@@ -6,7 +6,6 @@
     <app-nav-list-item
       *ngFor="let item of sidenavUiQuery.navItems$ | async"
       [item]="item"
-      (itemSelect)="onItemSelect($event)"
     ></app-nav-list-item>
   </mat-nav-list>
 </section>

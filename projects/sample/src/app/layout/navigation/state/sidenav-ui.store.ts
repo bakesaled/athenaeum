@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { EntityState, EntityStore, StoreConfig } from '@datorama/akita';
-import { SIDENAV_UI_NAV_ITEMS, SidenavUI } from './sidenav-ui.model';
+import {
+  SIDENAV_UI_EXPANDED_NAV_ITEMS,
+  SIDENAV_UI_NAV_ITEMS,
+  SIDENAV_UI_SELECTED_NAV_ITEM,
+  SidenavUI,
+} from './sidenav-ui.model';
 
 export interface SidenavState extends EntityState<SidenavUI> {
   ui: SidenavUI;
@@ -9,6 +14,8 @@ export interface SidenavState extends EntityState<SidenavUI> {
 const initialState = {
   ui: {
     navItems: SIDENAV_UI_NAV_ITEMS,
+    selectedNavItem: SIDENAV_UI_SELECTED_NAV_ITEM,
+    expandedNavItems: SIDENAV_UI_EXPANDED_NAV_ITEMS,
   },
 };
 

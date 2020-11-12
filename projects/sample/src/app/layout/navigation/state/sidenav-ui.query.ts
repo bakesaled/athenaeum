@@ -2,13 +2,22 @@ import { Injectable } from '@angular/core';
 import { QueryEntity } from '@datorama/akita';
 import { SidenavUiStore, SidenavState } from './sidenav-ui.store';
 import { NavItem } from './sidenav-ui.model';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class SidenavUiQuery extends QueryEntity<SidenavState> {
   navItems$ = this.select((state) => state.ui.navItems);
+  selectedNavItem$ = this.select((state) => state.ui.selectedNavItem);
 
   constructor(protected store: SidenavUiStore) {
     super(store);
+  }
+
+  selectIsNavItemSelected(navItem: NavItem): Observable<boolean> {
+    return this.selectedNavItem$.pipe(
+      map((selectedItem) => selectedItem && selectedItem.path === navItem.path)
+    );
   }
 
   getNavItems(): NavItem[] {

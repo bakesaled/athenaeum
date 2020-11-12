@@ -2,15 +2,12 @@ import {
   Component,
   Input,
   OnInit,
-  Output,
-  EventEmitter,
-  QueryList,
-  ViewChildren,
-  ChangeDetectorRef,
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { NavItem } from '../../state/sidenav-ui.model';
 import { Router } from '@angular/router';
+import { SidenavUiQuery } from '../../state/sidenav-ui.query';
+import { SidenavUiService } from '../../state/sidenav-ui.service';
 
 @Component({
   selector: 'app-nav-list-item',
@@ -19,18 +16,20 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavListItemComponent implements OnInit {
-  @ViewChildren(NavListItemComponent)
-  itemComponents: QueryList<NavListItemComponent>;
+  // @ViewChildren(NavListItemComponent)
+  // itemComponents: QueryList<NavListItemComponent>;
 
   @Input()
   item: NavItem;
 
-  @Output()
-  itemSelect = new EventEmitter<NavItem>();
+  // @Output()
+  // itemSelect = new EventEmitter<NavItem>();
 
   constructor(
     private router: Router,
-    private changeDetector: ChangeDetectorRef
+    // private changeDetector: ChangeDetectorRef,
+    public sidenavUiQuery: SidenavUiQuery,
+    private sidenavUiService: SidenavUiService
   ) {}
 
   ngOnInit(): void {}
@@ -41,8 +40,9 @@ export class NavListItemComponent implements OnInit {
   }
 
   onItemClick(): void {
-    this.itemSelect.emit(this.item);
-    this.item.selected = true;
+    this.sidenavUiService.updateSelectedNavItem(this.item.path);
+    // this.itemSelect.emit(this.item);
+    // this.item.selected = true;
     this.router.navigate([this.item.route]);
   }
 
@@ -50,12 +50,12 @@ export class NavListItemComponent implements OnInit {
     this.item.expanded = !this.item.expanded;
   }
 
-  unselect(): void {
-    this.item.selected = false;
-    this.changeDetector.markForCheck();
-  }
+  // unselect(): void {
+  //   this.item.selected = false;
+  //   this.changeDetector.markForCheck();
+  // }
 
-  onItemSelect($event: NavItem): void {
-    this.itemSelect.emit($event);
-  }
+  // onItemSelect($event: NavItem): void {
+  //   this.itemSelect.emit($event);
+  // }
 }

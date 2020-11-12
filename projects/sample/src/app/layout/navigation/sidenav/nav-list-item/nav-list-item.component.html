@@ -13,7 +13,10 @@
   <a
     mat-list-item
     (click)="onItemClick()"
-    [ngClass]="{ 'mat-list-item--selected': item?.selected }"
+    [ngClass]="{
+      'mat-list-item--selected':
+        sidenavUiQuery.selectIsNavItemSelected(item) | async
+    }"
   >
     <div>
       {{ item?.text }}
@@ -22,10 +25,6 @@
 </div>
 
 <div *ngIf="item?.expanded">
-  <app-nav-list-item
-    *ngFor="let child of item?.children"
-    [item]="child"
-    (itemSelect)="onItemSelect($event)"
-  >
+  <app-nav-list-item *ngFor="let child of item?.children" [item]="child">
   </app-nav-list-item>
 </div>

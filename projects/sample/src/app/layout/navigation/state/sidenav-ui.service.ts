@@ -18,29 +18,39 @@ export class SidenavUiService {
 
   updateSelectedNavItem(path: string): void {
     const allItems = this.sidenavUiQuery.getAllNavItemsIncludingChildren();
-    if (!path || !path.length) {
-      return;
-    }
-
-    allItems.forEach((item) => {
-      item.selected = false;
+    // if (!path || !path.length) {
+    //   return;
+    // }
+    const navItem = allItems.find((i) => i.path === path);
+    this.sidenavStore.updateUI({
+      selectedNavItem: navItem,
     });
-    this.expandAndSelect(allItems, path);
+    // const allItems = this.sidenavUiQuery.getAllNavItemsIncludingChildren();
+    // if (!path || !path.length) {
+    //   return;
+    // }
+    //
+    // allItems.forEach((item) => {
+    //   item.selected = false;
+    // });
+    // this.expandAndSelect(allItems, path);
   }
 
-  private expandAndSelect(allItems: NavItem[], selectedPath: string): void {
-    const result = allItems.find((item) => item.path === selectedPath);
-    if (!result) {
-      return;
-    }
-    result.selected = true;
-    let expandedItem = result;
-    while (expandedItem.parentPath) {
-      const parentItem = allItems.find(
-        (item) => item.path === expandedItem.parentPath
-      );
-      parentItem.expanded = true;
-      expandedItem = parentItem;
-    }
-  }
+  updateExpandedNavItems(): void {}
+
+  // private expandAndSelect(allItems: NavItem[], selectedPath: string): void {
+  //   const result = allItems.find((item) => item.path === selectedPath);
+  //   if (!result) {
+  //     return;
+  //   }
+  //   // result.selected = true;
+  //   let expandedItem = result;
+  //   while (expandedItem.parentPath) {
+  //     const parentItem = allItems.find(
+  //       (item) => item.path === expandedItem.parentPath
+  //     );
+  //     parentItem.expanded = true;
+  //     expandedItem = parentItem;
+  //   }
+  // }
 }
