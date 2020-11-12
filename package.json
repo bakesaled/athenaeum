@@ -9,7 +9,6 @@
     "build:ci:sample": "yarn build --prod --project=sample",
     "test": "yarn ng test",
     "test:ci": "yarn test --runInBand --ci --logHeapUsage",
-    "test:ci:sample": "yarn test --project=sample --runInBand --ci --logHeapUsage",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
