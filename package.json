@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:ci": "yarn build --prod",
+    "build:ci:sample": "yarn build --prod --project=sample",
     "test": "yarn ng test",
     "test:ci": "yarn test --runInBand --ci --logHeapUsage",
     "test:ci:sample": "yarn test --project=sample --runInBand --ci --logHeapUsage",
