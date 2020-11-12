@@ -3006,6 +3006,7 @@ __metadata:
     "@types/jest": ^26.0.15
     "@types/node": ^12.11.1
     codelyzer: ^6.0.0
+    cp: ^0.2.0
     jasmine-core: ~3.6.0
     jasmine-spec-reporter: ~5.0.0
     jest: ^26.6.3
@@ -4341,6 +4342,13 @@ __metadata:
     js-yaml: ^3.13.1
     parse-json: ^4.0.0
   checksum: 02d51fb28871d1e6114333f1109e47714e280d60ee8f05cf03bd5a0b9d0954f3d1a99b01edb3ea8147e743b2c9caa3738f745157ebddd5b93efeac324d3d5239
+  languageName: node
+  linkType: hard
+
+"cp@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "cp@npm:0.2.0"
+  checksum: 346ea7e4e30455e4c13a3691ed056729b70ed014354f9e85785fca2be5f16fa84d6da0bae95d31514e40765d27e12009b94b06d378e72d7ba5975939461776a5
   languageName: node
   linkType: hard
 
