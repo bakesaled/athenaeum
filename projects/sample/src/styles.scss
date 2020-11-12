@@ -4,7 +4,16 @@
 
 @import 'themes/light-theme';
 
+// import custom component theme
+@import 'app/layout/navigation/sidenav/nav-list-item/nav-list-item.component.scss-theme';
+
+// add additional component themes here
+@mixin custom-components-theme($theme) {
+  @include nav-list-item-component-theme($theme);
+}
+
 @include angular-material-theme($ath-light-theme);
+@include custom-components-theme($ath-light-theme);
 
 html,
 body {

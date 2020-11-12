@@ -1,0 +1,15 @@
+@import '~@angular/material/theming';
+
+@mixin nav-list-item-component-theme($theme) {
+  $background: map-get($theme, background);
+
+  .demo-nav-list-item-row {
+    .mat-list-item {
+      &--selected,
+      &:hover,
+      &:focus {
+        background-color: mat-color($background, hover, 0.12);
+      }
+    }
+  }
+}

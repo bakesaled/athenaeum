@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ComponentsComponent } from './components.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'table',
-    pathMatch: 'full',
+    component: ComponentsComponent,
   },
   {
     path: 'table',
     loadChildren: () =>
       import('./table/table.module').then((m) => m.TableModule),
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full',
   },
 ];
 

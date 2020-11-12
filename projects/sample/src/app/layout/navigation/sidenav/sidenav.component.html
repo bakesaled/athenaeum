@@ -1,5 +1,12 @@
-<mat-toolbar color="primary"> Athenaeum </mat-toolbar>
-<mat-nav-list>
-  <a mat-list-item [routerLink]="'/'"> Home </a>
-  <a mat-list-item [routerLink]="'/components'"> Components </a>
-</mat-nav-list>
+<section>
+  <mat-toolbar color="primary">
+    <a mat-button [routerLink]="'./'">Athenaeum </a></mat-toolbar
+  >
+  <mat-nav-list>
+    <app-nav-list-item
+      *ngFor="let item of sidenavUiQuery.navItems$ | async"
+      [item]="item"
+      (itemSelect)="onItemSelect($event)"
+    ></app-nav-list-item>
+  </mat-nav-list>
+</section>
