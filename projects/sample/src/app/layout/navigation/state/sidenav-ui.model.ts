@@ -3,7 +3,6 @@ export interface NavItem {
   route?: string;
   level?: number;
   expandable?: boolean;
-  expanded?: boolean;
   path?: string;
   parentPath?: string;
   children?: NavItem[];

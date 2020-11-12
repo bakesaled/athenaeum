@@ -16,18 +16,11 @@ import { SidenavUiService } from '../../state/sidenav-ui.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavListItemComponent implements OnInit {
-  // @ViewChildren(NavListItemComponent)
-  // itemComponents: QueryList<NavListItemComponent>;
-
   @Input()
   item: NavItem;
 
-  // @Output()
-  // itemSelect = new EventEmitter<NavItem>();
-
   constructor(
     private router: Router,
-    // private changeDetector: ChangeDetectorRef,
     public sidenavUiQuery: SidenavUiQuery,
     private sidenavUiService: SidenavUiService
   ) {}
@@ -41,21 +34,10 @@ export class NavListItemComponent implements OnInit {
 
   onItemClick(): void {
     this.sidenavUiService.updateSelectedNavItem(this.item.path);
-    // this.itemSelect.emit(this.item);
-    // this.item.selected = true;
     this.router.navigate([this.item.route]);
   }
 
-  onItemToggleExpansion(): void {
-    this.item.expanded = !this.item.expanded;
+  onItemToggleExpansion(expand: boolean): void {
+    this.sidenavUiService.updateExpandedNavItems(this.item, expand);
   }
-
-  // unselect(): void {
-  //   this.item.selected = false;
-  //   this.changeDetector.markForCheck();
-  // }
-
-  // onItemSelect($event: NavItem): void {
-  //   this.itemSelect.emit($event);
-  // }
 }

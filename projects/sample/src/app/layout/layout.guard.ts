@@ -7,16 +7,12 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SidenavUiService } from './navigation/state/sidenav-ui.service';
-import { SidenavUiQuery } from './navigation/state/sidenav-ui.query';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LayoutGuard implements CanActivate {
-  constructor(
-    private sidenavUiService: SidenavUiService,
-    private sidenavUiQuery: SidenavUiQuery
-  ) {}
+  constructor(private sidenavUiService: SidenavUiService) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -26,17 +22,12 @@ export class LayoutGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const expandedItems = this.sidenavUiQuery.getExpandedNavItems();
     this.sidenavUiService.updateNavItems([
       {
         text: 'Components',
         level: 0,
         route: '/components',
         expandable: true,
-        expanded: !!(
-          expandedItems &&
-          expandedItems.find((item) => item.path === '/components')
-        ),
         path: '/components',
         children: [
           {

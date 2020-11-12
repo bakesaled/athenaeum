@@ -18,39 +18,44 @@ export class SidenavUiService {
 
   updateSelectedNavItem(path: string): void {
     const allItems = this.sidenavUiQuery.getAllNavItemsIncludingChildren();
-    // if (!path || !path.length) {
-    //   return;
-    // }
     const navItem = allItems.find((i) => i.path === path);
     this.sidenavStore.updateUI({
       selectedNavItem: navItem,
     });
-    // const allItems = this.sidenavUiQuery.getAllNavItemsIncludingChildren();
-    // if (!path || !path.length) {
-    //   return;
-    // }
-    //
-    // allItems.forEach((item) => {
-    //   item.selected = false;
-    // });
-    // this.expandAndSelect(allItems, path);
+    if (navItem) {
+      this.expandParents(allItems, navItem.path);
+    }
   }
 
-  updateExpandedNavItems(): void {}
+  updateExpandedNavItems(navItem: NavItem, expand: boolean): void {
+    const expandedItems = [...this.sidenavUiQuery.getExpandedNavItems()];
+    const expandedMatchIndex = expandedItems.findIndex(
+      (ei) => ei.path === navItem.path
+    );
 
-  // private expandAndSelect(allItems: NavItem[], selectedPath: string): void {
-  //   const result = allItems.find((item) => item.path === selectedPath);
-  //   if (!result) {
-  //     return;
-  //   }
-  //   // result.selected = true;
-  //   let expandedItem = result;
-  //   while (expandedItem.parentPath) {
-  //     const parentItem = allItems.find(
-  //       (item) => item.path === expandedItem.parentPath
-  //     );
-  //     parentItem.expanded = true;
-  //     expandedItem = parentItem;
-  //   }
-  // }
+    if (expandedMatchIndex > -1 && !expand) {
+      expandedItems.splice(expandedMatchIndex, 1);
+    } else if (expandedMatchIndex === -1 && expand) {
+      expandedItems.push(navItem);
+    }
+
+    this.sidenavStore.updateUI({
+      expandedNavItems: expandedItems,
+    });
+  }
+
+  private expandParents(allItems: NavItem[], selectedPath: string): void {
+    const result = allItems.find((item) => item.path === selectedPath);
+    if (!result) {
+      return;
+    }
+    let expandedItem = result;
+    while (expandedItem.parentPath) {
+      const parentItem = allItems.find(
+        (item) => item.path === expandedItem.parentPath
+      );
+      this.updateExpandedNavItems(parentItem, true);
+      expandedItem = parentItem;
+    }
+  }
 }

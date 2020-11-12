@@ -2,13 +2,25 @@
   class="demo-nav-list-item-row"
   [ngStyle]="{ 'margin-left': getMargin(item) }"
 >
-  <a (click)="onItemToggleExpansion()" class="demo-nav-list-item-expand">
-    <mat-icon inline="true" *ngIf="item?.expandable && !item?.expanded">
-      keyboard_arrow_right
-    </mat-icon>
-    <mat-icon inline="true" *ngIf="item?.expandable && item?.expanded">
-      keyboard_arrow_down
-    </mat-icon>
+  <a
+    *ngIf="
+      item?.expandable &&
+      (sidenavUiQuery.selectIsNavItemExpanded(item) | async) === false
+    "
+    (click)="onItemToggleExpansion(true)"
+    class="demo-nav-list-item-expand"
+  >
+    <mat-icon inline="true"> keyboard_arrow_right </mat-icon>
+  </a>
+  <a
+    *ngIf="
+      item?.expandable &&
+      (sidenavUiQuery.selectIsNavItemExpanded(item) | async) === true
+    "
+    (click)="onItemToggleExpansion(false)"
+    class="demo-nav-list-item-expand"
+  >
+    <mat-icon inline="true"> keyboard_arrow_down </mat-icon>
   </a>
   <a
     mat-list-item
@@ -24,7 +36,7 @@
   </a>
 </div>
 
-<div *ngIf="item?.expanded">
+<div *ngIf="(sidenavUiQuery.selectIsNavItemExpanded(item) | async) === true">
   <app-nav-list-item *ngFor="let child of item?.children" [item]="child">
   </app-nav-list-item>
 </div>

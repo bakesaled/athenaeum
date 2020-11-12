@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators';
 export class SidenavUiQuery extends QueryEntity<SidenavState> {
   navItems$ = this.select((state) => state.ui.navItems);
   selectedNavItem$ = this.select((state) => state.ui.selectedNavItem);
+  expandedNavItems$ = this.select((state) => state.ui.expandedNavItems);
 
   constructor(protected store: SidenavUiStore) {
     super(store);
@@ -17,6 +18,15 @@ export class SidenavUiQuery extends QueryEntity<SidenavState> {
   selectIsNavItemSelected(navItem: NavItem): Observable<boolean> {
     return this.selectedNavItem$.pipe(
       map((selectedItem) => selectedItem && selectedItem.path === navItem.path)
+    );
+  }
+
+  selectIsNavItemExpanded(navItem: NavItem): Observable<boolean> {
+    return this.expandedNavItems$.pipe(
+      map(
+        (expandedItems) =>
+          expandedItems.findIndex((ei) => ei.path === navItem.path) > -1
+      )
     );
   }
 
@@ -49,8 +59,6 @@ export class SidenavUiQuery extends QueryEntity<SidenavState> {
   }
 
   getExpandedNavItems(): NavItem[] {
-    return this.getAllNavItemsIncludingChildren().filter(
-      (item) => item.expanded
-    );
+    return this.getValue().ui.expandedNavItems;
   }
 }
