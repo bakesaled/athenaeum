@@ -66,6 +66,9 @@ MIT
 @angular/router
 MIT
 
+@bakesaled/athenaeum
+MIT
+
 @datorama/akita
 Apache-2.0
 
