@@ -1,0 +1,8 @@
+<ng-container matColumnDef>
+  <th mat-header-cell class="ath-numeric-header" *matHeaderCellDef>
+    {{ athColumnDef.headerText || athColumnDef.columnDefName }}
+  </th>
+  <td mat-cell class="ath-numeric-cell" *matCellDef="let element">
+    {{ element[athColumnDef.columnDefName] | number: '1.0-0' }}
+  </td>
+</ng-container>

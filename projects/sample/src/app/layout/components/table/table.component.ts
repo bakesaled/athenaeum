@@ -26,22 +26,27 @@ export class TableComponent implements OnInit {
     {
       columnDefName: 'name',
       headerText: 'name',
+      columnType: 'text',
     },
     {
       columnDefName: 'symbol',
       headerText: 'symbol',
+      columnType: 'text',
     },
     {
       columnDefName: 'price',
       headerText: 'price',
+      columnType: 'numeric',
     },
     {
       columnDefName: 'change',
       headerText: 'change',
+      columnType: 'text',
     },
     {
       columnDefName: 'cap',
       headerText: 'cap',
+      columnType: 'text',
     },
   ];
   dataSource = new MatTableDataSource(SAMPLE_DATA);
