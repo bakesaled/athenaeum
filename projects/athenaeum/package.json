@@ -1,6 +1,17 @@
 {
-  "name": "athenaeum",
+  "name": "@bakesaled/athenaeum",
+  "author": "Brandon Eleuterio",
   "version": "0.0.1",
+  "description": "An Angular UI components library",
+  "keywords": [
+    "angular",
+    "typescript",
+    "ui",
+    "components",
+    "material"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/bakesaled/athenaeum#readme",
   "peerDependencies": {
     "@angular/animations": "^10.2.3",
     "@angular/cdk": "^10.2.7",
@@ -10,5 +21,9 @@
   },
   "dependencies": {
     "tslib": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bakesaled/athenaeum.git"
   }
 }
