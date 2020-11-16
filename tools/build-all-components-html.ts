@@ -12,7 +12,10 @@ const pathToAppTarget = relative(
   './projects/sample/src/app/layout/components'
 );
 
+const pathToAssets = relative(cwd, './projects/sample/src/assets');
+
 new ComponentHtmlBuilder(new ComponentReader()).build(
   pathToLimestoneLib,
-  pathToAppTarget
+  pathToAppTarget,
+  pathToAssets
 );

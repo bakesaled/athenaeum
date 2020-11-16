@@ -4,6 +4,7 @@ import { lstatSync, readdirSync } from 'fs-extra';
 import { ComponentParts, ComponentReader } from './component-reader';
 import { readFileSync, writeFileSync } from 'fs';
 import * as he from 'he';
+import { NavItem } from '../projects/sample/src/app/layout/navigation/state/sidenav-ui.model';
 
 declare global {
   interface String {
@@ -41,7 +42,12 @@ function capitalize(): string {
 export class ComponentHtmlBuilder {
   constructor(private componentReader: ComponentReader) {}
 
-  build(pathToLib: string, pathToAppTarget: string): void {
+  build(
+    pathToLib: string,
+    pathToAppTarget: string,
+    pathToAssets: string
+  ): void {
+    const componentPartsList: ComponentParts[] = [];
     logDebug(`Building component HTML`);
 
     logDebug(`Found path to lib:`, pathToLib);
@@ -71,7 +77,8 @@ export class ComponentHtmlBuilder {
 
       componentHtml = componentHtml.appendLine('');
       componentHtml += this.buildExampleHtml(
-        join(pathToAppTarget, componentNameKebab)
+        join(pathToAppTarget, componentNameKebab),
+        componentParts
       );
 
       logDebug(`Writing ${componentParts.name}.component.html`);
@@ -83,13 +90,62 @@ export class ComponentHtmlBuilder {
         ),
         componentHtml
       );
+      componentPartsList.push(componentParts);
     });
+
+    const navItems = this.buildNavItems(componentPartsList);
+
+    logDebug(`Writing nav-data.json`);
+    writeFileSync(
+      join(pathToAssets, `nav-data.json`),
+      JSON.stringify(navItems)
+    );
+  }
+
+  buildNavItems(componentPartsList: ComponentParts[]): NavItem[] {
+    const navItems: NavItem[] = [
+      {
+        text: 'Components',
+        level: 0,
+        route: '/components',
+        expandable: true,
+        path: '/components',
+        children: [],
+      },
+    ];
+
+    componentPartsList.forEach((componentParts) => {
+      const componentNavItem = {
+        text: componentParts.simpleName.capitalize(),
+        level: 1,
+        route: `/components/${componentParts.simpleName}`,
+        expandable: true,
+        path: `/components/${componentParts.simpleName}`,
+        parentPath: '/components',
+        children: [],
+      };
+
+      componentParts.examples.forEach((exampleName) => {
+        componentNavItem.children.push({
+          text: `${exampleName.capitalize()} Example`,
+          level: 2,
+          route: `/components/${componentParts.simpleName}`,
+          fragment: `${exampleName}`,
+          path: `/components/${componentParts.simpleName}#${exampleName}`,
+          parentPath: `/components/${componentParts.simpleName}`,
+        });
+      });
+
+      navItems[0].children.push(componentNavItem);
+    });
+
+    return navItems;
   }
 
   buildComponentHtml(componentParts: ComponentParts): string {
     let htmlContent = ``;
     htmlContent = htmlContent.appendLine(
-      `<h1>${componentParts.simpleName}</h1>`
+      `<h1>${componentParts.simpleName.capitalize()}</h1>`
     );
 
     htmlContent = htmlContent.appendLine(`<p>${componentParts.comment}</p>`);
@@ -117,7 +173,7 @@ export class ComponentHtmlBuilder {
     return htmlContent;
   }
 
-  buildExampleHtml(compDir: string): string {
+  buildExampleHtml(compDir: string, componentParts: ComponentParts): string {
     let exampleHtml = '';
 
     const getDirectories = (source) =>
@@ -140,8 +196,10 @@ export class ComponentHtmlBuilder {
       logDebug(`Found path to example files`, exampleFiles);
 
       const exampleTitle = exampleFiles[0].split('.')[0].replace(/-/g, ' ');
+      const exampleSimpleName = exampleTitle.split(' ')[0];
+      componentParts.examples.push(exampleSimpleName);
       exampleHtml = exampleHtml.appendLine(
-        `<section id="${exampleTitle.split(' ')[0]}">`
+        `<section id="${exampleSimpleName}">`
       );
       exampleHtml = exampleHtml.appendLine(`<mat-expansion-panel>
     <mat-expansion-panel-header>

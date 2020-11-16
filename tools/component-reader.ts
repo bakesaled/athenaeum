@@ -14,6 +14,7 @@ export interface ComponentParts {
   selector?: string;
   comment?: string;
   inputs: Input[];
+  examples: string[];
 }
 
 export class ComponentReader {
@@ -23,6 +24,7 @@ export class ComponentReader {
   ): ComponentParts {
     const componentParts: ComponentParts = {
       inputs: [],
+      examples: [],
     };
 
     logDebug('reading component file', componentDirPath, componentFileName);
@@ -31,10 +33,7 @@ export class ComponentReader {
       'utf8'
     );
 
-    componentParts.simpleName = componentFileName
-      .split('/')[0]
-      .split('.')[0]
-      .capitalize();
+    componentParts.simpleName = componentFileName.split('/')[0].split('.')[0];
 
     const lines = content.split('\n');
 
