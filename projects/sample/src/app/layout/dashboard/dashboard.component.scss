@@ -1,0 +1,14 @@
+section {
+  text-align: center;
+  margin-top: 100px;
+}
+
+mat-toolbar {
+  height: 200px;
+  justify-content: center;
+  .headliner {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 56px;
+  }
+}
