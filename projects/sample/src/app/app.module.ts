@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     environment.production
       ? []
       : AkitaNgDevtools.forRoot({

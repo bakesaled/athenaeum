@@ -2,13 +2,23 @@ import { Injectable } from '@angular/core';
 import { SidenavUiStore } from './sidenav-ui.store';
 import { NavItem } from './sidenav-ui.model';
 import { SidenavUiQuery } from './sidenav-ui.query';
+import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class SidenavUiService {
   constructor(
     private sidenavStore: SidenavUiStore,
-    private sidenavUiQuery: SidenavUiQuery
+    private sidenavUiQuery: SidenavUiQuery,
+    private httpClient: HttpClient
   ) {}
+
+  syncNavItems(): Observable<NavItem[]> {
+    return this.httpClient
+      .get<NavItem[]>('assets/nav-data.json')
+      .pipe(tap((items) => this.updateNavItems(items)));
+  }
 
   updateNavItems(navItems: NavItem[]): void {
     this.sidenavStore.updateUI({

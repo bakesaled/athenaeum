@@ -1,0 +1,18 @@
+[
+  {
+    "text": "Components",
+    "level": 0,
+    "route": "/components",
+    "expandable": true,
+    "path": "/components",
+    "children": [
+      {
+        "text": "Table",
+        "level": 1,
+        "route": "/components/table",
+        "path": "/components/table",
+        "parentPath": "/components"
+      }
+    ]
+  }
+]

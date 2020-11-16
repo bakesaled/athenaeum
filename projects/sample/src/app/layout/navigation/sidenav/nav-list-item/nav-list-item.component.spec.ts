@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavListItemComponent } from './nav-list-item.component';
 import { NavigationModule } from '../../navigation.module';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('NavListItemComponent', () => {
   let component: NavListItemComponent;
@@ -10,7 +11,7 @@ describe('NavListItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavigationModule, RouterTestingModule],
+      imports: [NavigationModule, RouterTestingModule, HttpClientTestingModule],
     }).compileComponents();
   });
 

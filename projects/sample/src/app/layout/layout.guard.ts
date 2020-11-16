@@ -5,8 +5,9 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { SidenavUiService } from './navigation/state/sidenav-ui.service';
+import { switchMap, take, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -22,25 +23,10 @@ export class LayoutGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    this.sidenavUiService.updateNavItems([
-      {
-        text: 'Components',
-        level: 0,
-        route: '/components',
-        expandable: true,
-        path: '/components',
-        children: [
-          {
-            text: 'Table',
-            level: 1,
-            route: '/components/table',
-            path: '/components/table',
-            parentPath: '/components',
-          },
-        ],
-      },
-    ]);
-    this.sidenavUiService.updateSelectedNavItem(state.url);
-    return true;
+    return this.sidenavUiService.syncNavItems().pipe(
+      take(1),
+      tap((_) => this.sidenavUiService.updateSelectedNavItem(state.url)),
+      switchMap(() => of(true))
+    );
   }
 }
