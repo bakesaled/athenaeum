@@ -1,0 +1,15 @@
+.mat-card {
+  cursor: pointer;
+  .mat-card-content {
+    height: 100px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .mat-card-footer {
+    padding: 10px;
+  }
+}

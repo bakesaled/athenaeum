@@ -6,10 +6,12 @@
 
 // import custom component theme
 @import 'app/layout/navigation/sidenav/nav-list-item/nav-list-item.component.scss-theme';
+@import 'app/layout/components/components.component.scss-theme';
 
 // add additional component themes here
 @mixin custom-components-theme($theme) {
   @include nav-list-item-component-theme($theme);
+  @include components-component-theme($theme);
 }
 
 @include angular-material-theme($ath-light-theme);
