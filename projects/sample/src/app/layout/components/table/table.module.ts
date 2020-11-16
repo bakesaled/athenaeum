@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { TableComponent } from './table.component';
 import { SharedModule } from '../../../shared/shared.module';
 import { TableRoutingModule } from './table-routing.module';
+import { BasicTableExampleComponent } from './examples/basic-table-example/basic-table-example.component';
 
 @NgModule({
-  declarations: [TableComponent],
+  declarations: [TableComponent, BasicTableExampleComponent],
   imports: [CommonModule, SharedModule, TableRoutingModule],
 })
 export class TableModule {}

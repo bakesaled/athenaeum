@@ -15,6 +15,9 @@ import { AthTableColumnDef } from './table-column-def';
 import { AthNumericColumnComponent } from './numeric-column/numeric-column.component';
 import { MatTable } from '@angular/material/table';
 
+/**
+ * A data table that displays rows of data.
+ */
 @Component({
   selector: 'ath-table',
   templateUrl: './table.component.html',
@@ -37,11 +40,16 @@ export class AthTableComponent<T> implements OnInit, AfterViewInit {
 
   @ViewChild(MatTable, { static: true }) table: MatTable<T>;
 
+  /**
+   * Column definitions.
+   */
   @Input()
   athColumnDefs: AthTableColumnDef[];
 
-  @Input()
-  dataSource: DataSource<T>;
+  /**
+   * Datasource.
+   */
+  @Input() dataSource: DataSource<T>;
 
   constructor(private changeDetector: ChangeDetectorRef) {}
 

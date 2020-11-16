@@ -6,6 +6,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AthTableModule } from '../../../../athenaeum/src/lib/components/table/table.module';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 export const MATERIAL_MODULES = [
   MatSidenavModule,
@@ -13,6 +15,8 @@ export const MATERIAL_MODULES = [
   MatListModule,
   MatButtonModule,
   MatIconModule,
+  MatTabsModule,
+  MatExpansionModule,
 ];
 
 export const ATHENAEUM_MODULES = [AthTableModule];
