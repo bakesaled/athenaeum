@@ -10,8 +10,19 @@
         "text": "Table",
         "level": 1,
         "route": "/components/table",
+        "expandable": true,
         "path": "/components/table",
-        "parentPath": "/components"
+        "parentPath": "/components",
+        "children": [
+          {
+            "text": "Basic Example",
+            "level": 2,
+            "route": "/components/table",
+            "fragment": "basic",
+            "path": "/components/table#basic",
+            "parentPath": "/components/table"
+          }
+        ]
       }
     ]
   }

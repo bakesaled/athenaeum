@@ -1,6 +1,7 @@
 export interface NavItem {
   text?: string;
   route?: string;
+  fragment?: string;
   level?: number;
   expandable?: boolean;
   path?: string;

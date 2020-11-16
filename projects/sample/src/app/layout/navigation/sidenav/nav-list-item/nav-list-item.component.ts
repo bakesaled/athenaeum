@@ -34,10 +34,12 @@ export class NavListItemComponent implements OnInit {
 
   onItemClick(): void {
     this.sidenavUiService.updateSelectedNavItem(this.item.path);
-    this.router.navigate([this.item.route]);
+    this.router.navigate([this.item.route], { fragment: this.item.fragment });
   }
 
   onItemToggleExpansion(expand: boolean): void {
     this.sidenavUiService.updateExpandedNavItems(this.item, expand);
+    // HACK: Trigger resize to redraw content container...
+    setTimeout(() => window.dispatchEvent(new Event('resize')), 500);
   }
 }

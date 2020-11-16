@@ -140,6 +140,9 @@ export class ComponentHtmlBuilder {
       logDebug(`Found path to example files`, exampleFiles);
 
       const exampleTitle = exampleFiles[0].split('.')[0].replace(/-/g, ' ');
+      exampleHtml = exampleHtml.appendLine(
+        `<section id="${exampleTitle.split(' ')[0]}">`
+      );
       exampleHtml = exampleHtml.appendLine(`<mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -186,6 +189,7 @@ export class ComponentHtmlBuilder {
         `<app-${exampleComponentTagName}></app-${exampleComponentTagName}>`
       );
     });
+    exampleHtml = exampleHtml.appendLine(`</section>`);
 
     return exampleHtml;
   }
