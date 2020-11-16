@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { AthTableColumnDef } from '../../../../../../../../athenaeum/src/lib/components/table/table-column-def';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -17,12 +17,12 @@ const SAMPLE_DATA: Cryptocurrency[] = [
 ];
 
 @Component({
-  selector: 'app-basic-table-example',
-  templateUrl: './basic-table-example.component.html',
-  styleUrls: ['./basic-table-example.component.scss'],
+  selector: 'app-numeric-table-example',
+  templateUrl: './numeric-table-example.component.html',
+  styleUrls: ['./numeric-table-example.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BasicTableExampleComponent implements OnInit {
+export class NumericTableExampleComponent implements OnInit {
   tableColumnDefs: AthTableColumnDef[] = [
     {
       columnDefName: 'name',
@@ -37,17 +37,17 @@ export class BasicTableExampleComponent implements OnInit {
     {
       columnDefName: 'price',
       headerText: 'price',
-      columnType: 'text',
+      columnType: 'numeric',
     },
     {
       columnDefName: 'change',
       headerText: 'change',
-      columnType: 'text',
+      columnType: 'numeric',
     },
     {
       columnDefName: 'cap',
       headerText: 'cap',
-      columnType: 'text',
+      columnType: 'numeric',
     },
   ];
   dataSource = new MatTableDataSource(SAMPLE_DATA);

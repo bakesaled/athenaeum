@@ -21,6 +21,14 @@
             "fragment": "basic",
             "path": "/components/table#basic",
             "parentPath": "/components/table"
+          },
+          {
+            "text": "Numeric Example",
+            "level": 2,
+            "route": "/components/table",
+            "fragment": "numeric",
+            "path": "/components/table#numeric",
+            "parentPath": "/components/table"
           }
         ]
       }

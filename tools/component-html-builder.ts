@@ -246,8 +246,8 @@ export class ComponentHtmlBuilder {
       exampleHtml = exampleHtml.appendLine(
         `<app-${exampleComponentTagName}></app-${exampleComponentTagName}>`
       );
+      exampleHtml = exampleHtml.appendLine(`</section>`);
     });
-    exampleHtml = exampleHtml.appendLine(`</section>`);
 
     return exampleHtml;
   }
