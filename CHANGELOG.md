@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/bakesaled/athenaeum/compare/v0.0.0...v0.1.0) (2020-11-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* removing root athenaeum module.  Import AthTableModule instead.
+
+### Features
+
+* **demo:** adding component cards ([17b0c08](https://github.com/bakesaled/athenaeum/commit/17b0c0802547557b3b1fd57c8e85d7c7428d3fef))
+* **demo:** adding dashboard text ([6e7ca6b](https://github.com/bakesaled/athenaeum/commit/6e7ca6b3db91ed81984f2838bdb685f1ca33c028))
+* **demo:** adding nav item for example ([f8ae4db](https://github.com/bakesaled/athenaeum/commit/f8ae4dbecf87fd463e9d34275fd40f0c515b2ade))
+* **demo:** adding numeric example ([5f73dab](https://github.com/bakesaled/athenaeum/commit/5f73dabe4538062bc94938a46571ed6f4c8d7c0d))
+* **demo:** dynamic doc builder ([b071e0c](https://github.com/bakesaled/athenaeum/commit/b071e0c4cd424cf5e1b0756b6e072799549d1ffc))
+* **demo:** navigate to example anchor tags ([eae3c33](https://github.com/bakesaled/athenaeum/commit/eae3c33b8fb13cdd629f69d1f0134954e0054196))
+* **table:** adding numeric column type ([d94049c](https://github.com/bakesaled/athenaeum/commit/d94049ccb23f836eaab208e8548102dd0d4dbf07))
+
+
+* removing root athenaeum module.  Import AthTableModule instead. ([68af2fb](https://github.com/bakesaled/athenaeum/commit/68af2fbd9767a27c3b4c6b016bc3a081e3316216))
+
 ## 0.0.0 (2020-11-13)
 
 
