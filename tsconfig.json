@@ -21,7 +21,7 @@
         "dist/athenaeum"
       ],
       "@bakesaled/athenaeum/*": [
-        "projects/athenaeum/src/lib/components/*"
+        "projects/athenaeum/*"
       ]
     }
   }

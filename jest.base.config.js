@@ -11,7 +11,6 @@ module.exports = {
   ],
   moduleNameMapper: {
     '\\.(jpg|jpeg|png)$': `${__dirname}/mock-module.js`,
-    '^@bakesaled/athenaeum/(.*)$':
-      '<rootDir>/projects/athenaeum/src/lib/components/$1',
+    '^@bakesaled/athenaeum/(.*)$': '<rootDir>/projects/athenaeum/$1',
   },
 };
