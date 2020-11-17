@@ -60,7 +60,9 @@ export class ComponentReader {
       }
 
       componentMetaData.encodedImportText = he.encode(
-        `import { ${componentMetaData.name}Module } from @athenaeum/${componentMetaData.name}Module;`,
+        `import { ${
+          componentMetaData.name
+        }Module } from @bakesaled/athenaeum/${componentMetaData.simpleName.toLowerCase()};`,
         { encodeEverything: true }
       );
 

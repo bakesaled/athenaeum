@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { AthTableColumnDef } from '../../../../../../../../athenaeum/src/lib/components/table/table-column-def';
+import { AthTableColumnDef } from '@bakesaled/athenaeum/table';
 import { MatTableDataSource } from '@angular/material/table';
 
 export interface Cryptocurrency {
