@@ -1,6 +1,7 @@
 import { relative } from 'path';
-import { ComponentHtmlBuilder } from './component-html-builder';
+import { ComponentMetaBuilder } from './component-meta-builder';
 import { ComponentReader } from './component-reader';
+import { ExampleReader } from './example-reader';
 
 const cwd = process.cwd();
 const pathToLimestoneLib = relative(
@@ -14,7 +15,7 @@ const pathToAppTarget = relative(
 
 const pathToAssets = relative(cwd, './projects/sample/src/assets');
 
-new ComponentHtmlBuilder(new ComponentReader()).build(
+new ComponentMetaBuilder(new ComponentReader(), new ExampleReader()).build(
   pathToLimestoneLib,
   pathToAppTarget,
   pathToAssets

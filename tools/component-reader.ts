@@ -1,29 +1,16 @@
 import { logDebug } from './logging';
 import { readFileSync } from 'fs-extra';
 import { join } from 'path';
-
-export interface Input {
-  name?: string;
-  type?: string;
-  comment?: string;
-}
-
-export interface ComponentParts {
-  name?: string;
-  simpleName?: string;
-  selector?: string;
-  comment?: string;
-  inputs: Input[];
-  examples: string[];
-}
+import { ComponentMetaData } from '../projects/sample/src/app/layout/components/state/components-ui.model';
+import * as he from 'he';
 
 export class ComponentReader {
   readComponentTsFile(
     componentDirPath: string,
     componentFileName: string
-  ): ComponentParts {
-    const componentParts: ComponentParts = {
-      inputs: [],
+  ): ComponentMetaData {
+    const componentMetaData: ComponentMetaData = {
+      properties: [],
       examples: [],
     };
 
@@ -33,7 +20,10 @@ export class ComponentReader {
       'utf8'
     );
 
-    componentParts.simpleName = componentFileName.split('/')[0].split('.')[0];
+    componentMetaData.simpleName = componentFileName
+      .split('/')[0]
+      .split('.')[0]
+      .capitalize();
 
     const lines = content.split('\n');
 
@@ -42,7 +32,7 @@ export class ComponentReader {
 
       // Get main component comment
       if (trimmedLine.startsWith('@Component(')) {
-        componentParts.comment = this.backupAndReadComment(
+        componentMetaData.comment = this.backupAndReadComment(
           lines,
           trimmedLine,
           idx,
@@ -50,7 +40,7 @@ export class ComponentReader {
         );
 
         if (lines[idx + 1].trim().startsWith('selector:')) {
-          componentParts.selector = lines[idx + 1]
+          componentMetaData.selector = lines[idx + 1]
             .replace(`selector: '`, '')
             .replace(`',`, '')
             .trim();
@@ -62,37 +52,55 @@ export class ComponentReader {
 
       // Get component name
       if (trimmedLine.startsWith('export class ')) {
-        componentParts.name = trimmedLine
+        componentMetaData.name = trimmedLine
           .match(/[\s\S]*export class (.*Component)/)[1]
           .trim()
           .replace('Component', '');
         return;
       }
 
+      componentMetaData.encodedImportText = he.encode(
+        `import { ${componentMetaData.name}Module } from @athenaeum/${componentMetaData.name}Module;`,
+        { encodeEverything: true }
+      );
+
+      componentMetaData.encodedUsageText = he.encode(
+        `<${componentMetaData.selector}></${componentMetaData.selector}>`,
+        { encodeEverything: true }
+      );
+
       // Get inputs
       if (trimmedLine.startsWith('@Input()')) {
         if (trimmedLine.length === 8) {
           const linePieces = lines[idx + 1].trim().split(':');
-          componentParts.inputs.push({
+          componentMetaData.properties.push({
             name: linePieces[0],
             type: linePieces[1].replace(';', '').trim(),
+            encodedType: he.encode(linePieces[1].replace(';', '').trim(), {
+              encodeEverything: true,
+            }),
             comment: this.backupAndReadComment(lines, line, idx, linePieces[0]),
+            decorator: 'input',
           });
         } else {
           const linePieces = lines[idx]
             .replace('@Input()', '')
             .trim()
             .split(':');
-          componentParts.inputs.push({
+          componentMetaData.properties.push({
             name: linePieces[0],
             type: linePieces[1].replace(';', '').trim(),
+            encodedType: he.encode(linePieces[1].replace(';', '').trim(), {
+              encodeEverything: true,
+            }),
             comment: this.backupAndReadComment(lines, line, idx, linePieces[0]),
+            decorator: 'input',
           });
         }
       }
     });
-    logDebug('component parts', componentParts);
-    return componentParts;
+    logDebug('component parts', componentMetaData);
+    return componentMetaData;
   }
 
   backupAndReadComment(lines: string[], line, idx, targetName): string {

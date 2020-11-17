@@ -8,12 +8,16 @@ import {
 import { Observable, of } from 'rxjs';
 import { SidenavUiService } from './navigation/state/sidenav-ui.service';
 import { switchMap, take, tap } from 'rxjs/operators';
+import { ComponentsUiService } from './components/state/components-ui.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LayoutGuard implements CanActivate {
-  constructor(private sidenavUiService: SidenavUiService) {}
+  constructor(
+    private sidenavUiService: SidenavUiService,
+    private componentsUiService: ComponentsUiService
+  ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -26,6 +30,7 @@ export class LayoutGuard implements CanActivate {
     return this.sidenavUiService.syncNavItems().pipe(
       take(1),
       tap((_) => this.sidenavUiService.updateSelectedNavItem(state.url)),
+      switchMap(() => this.componentsUiService.syncComponents()),
       switchMap(() => of(true))
     );
   }
