@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/bakesaled/athenaeum/compare/v0.1.0...v0.1.1) (2020-11-17)
+
+
+### Bug Fixes
+
+* exposing secondary package entry point for table ([1f8e8bb](https://github.com/bakesaled/athenaeum/commit/1f8e8bbf3968537505fc462a78ac136eb42f344f))
+
 ## [0.1.0](https://github.com/bakesaled/athenaeum/compare/v0.0.0...v0.1.0) (2020-11-17)
 
 
