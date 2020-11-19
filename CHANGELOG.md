@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/bakesaled/athenaeum/compare/v0.1.2...v0.1.3) (2020-11-19)
+
+
+### Features
+
+* **demo:** document outputs ([bb89366](https://github.com/bakesaled/athenaeum/commit/bb8936674d34f327c585892a75c5b8cef48952f0))
+* editable table column ([#1](https://github.com/bakesaled/athenaeum/issues/1)) ([c3377c0](https://github.com/bakesaled/athenaeum/commit/c3377c08f74c82c323c9324b8ae1c2d3a6c4f6e3))
+
 ### [0.1.2](https://github.com/bakesaled/athenaeum/compare/v0.1.1...v0.1.2) (2020-11-18)
 
 ### [0.1.1](https://github.com/bakesaled/athenaeum/compare/v0.1.0...v0.1.1) (2020-11-17)
