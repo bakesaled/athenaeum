@@ -23,6 +23,14 @@
             "parentPath": "/components/table"
           },
           {
+            "text": "Editable Example",
+            "level": 2,
+            "route": "/components/table",
+            "fragment": "editable",
+            "path": "/components/table#editable",
+            "parentPath": "/components/table"
+          },
+          {
             "text": "Numeric Example",
             "level": 2,
             "route": "/components/table",

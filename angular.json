@@ -10,7 +10,7 @@
     "athenaeum": {
       "projectType": "library",
       "root": "projects/athenaeum",
-      "sourceRoot": "projects/athenaeum/src",
+      "sourceRoot": "projects/athenaeum",
       "prefix": "ath",
       "schematics": {
         "@schematics/angular:component": {
@@ -34,7 +34,6 @@
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "scripts": []
           }

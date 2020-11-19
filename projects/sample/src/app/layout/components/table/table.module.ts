@@ -5,9 +5,10 @@ import { SharedModule } from '../../../shared/shared.module';
 import { TableRoutingModule } from './table-routing.module';
 import { BasicTableExampleComponent } from './examples/basic-table-example/basic-table-example.component';
 import { NumericTableExampleComponent } from './examples/numeric-table-example/numeric-table-example.component';
+import { EditableTableExampleComponent } from './examples/editable-table-example/editable-table-example.component';
 
 @NgModule({
-  declarations: [TableComponent, BasicTableExampleComponent, NumericTableExampleComponent],
+  declarations: [TableComponent, BasicTableExampleComponent, NumericTableExampleComponent, EditableTableExampleComponent],
   imports: [CommonModule, SharedModule, TableRoutingModule],
 })
 export class TableModule {}

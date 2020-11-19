@@ -43,6 +43,14 @@
       </mat-tab-group>
     </mat-expansion-panel>
 
-    <app-basic-table-example></app-basic-table-example>
+    <app-basic-table-example
+      *ngIf="example.simpleName.toLowerCase() === 'basic'"
+    ></app-basic-table-example>
+    <app-numeric-table-example
+      *ngIf="example.simpleName.toLowerCase() === 'numeric'"
+    ></app-numeric-table-example>
+    <app-editable-table-example
+      *ngIf="example.simpleName.toLowerCase() === 'editable'"
+    ></app-editable-table-example>
   </section>
 </ng-container>

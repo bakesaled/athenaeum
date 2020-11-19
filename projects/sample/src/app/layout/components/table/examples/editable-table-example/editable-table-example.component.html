@@ -1,0 +1,10 @@
+<ath-table
+  [dataSource]="dataSource"
+  [athColumnDefs]="tableColumnDefs"
+  (update)="onUpdate($event)"
+></ath-table>
+<label *ngIf="updatedCell"
+  >Updated cell -> row: [index: {{ updatedCell.rowIndex }}, name:
+  {{ updatedCell.element.name }}], new value:
+  {{ updatedCell.athColumnDef.headerText }} = {{ updatedCell.value }}</label
+>

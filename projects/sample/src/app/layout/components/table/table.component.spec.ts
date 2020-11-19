@@ -5,6 +5,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { BasicTableExampleComponent } from './examples/basic-table-example/basic-table-example.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NumericTableExampleComponent } from './examples/numeric-table-example/numeric-table-example.component';
+import { EditableTableExampleComponent } from './examples/editable-table-example/editable-table-example.component';
 
 describe('TableComponent', () => {
   let component: TableComponent;
@@ -16,6 +17,7 @@ describe('TableComponent', () => {
         TableComponent,
         BasicTableExampleComponent,
         NumericTableExampleComponent,
+        EditableTableExampleComponent,
       ],
       imports: [SharedModule, NoopAnimationsModule],
     }).compileComponents();
