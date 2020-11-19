@@ -19,7 +19,6 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './editable-text.component.html',
   styleUrls: ['./editable-text.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // tslint:disable-next-line:no-host-metadata-property
   host: {
     class: 'ath-editable-text',
   },
