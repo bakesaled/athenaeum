@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditableTextComponent should render 1`] = `
+<ath-editable-text
+  changeDetector={[Function ViewRef_]}
+  destroySubject={[Function Subject]}
+  editMode$={[Function Observable]}
+  editModeSubject={[Function BehaviorSubject]}
+  hostEl={[Function ElementRef]}
+  inputFormGroup={[Function FormGroup]}
+  update={[Function EventEmitter_]}
+>
+   
+  
+</ath-editable-text>
+`;

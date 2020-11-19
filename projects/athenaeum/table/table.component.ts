@@ -3,8 +3,10 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  EventEmitter,
   Input,
   OnInit,
+  Output,
   QueryList,
   ViewChild,
   ViewChildren,
@@ -14,6 +16,10 @@ import { DataSource } from '@angular/cdk/collections';
 import { AthTableColumnDef } from './table-column-def';
 import { AthNumericColumnComponent } from './numeric-column/numeric-column.component';
 import { MatTable } from '@angular/material/table';
+import {
+  AthEditableColumnComponent,
+  EditableColumnEvent,
+} from '@bakesaled/athenaeum/table/editable-column';
 
 /**
  * A data table that displays rows of data.
@@ -24,7 +30,6 @@ import { MatTable } from '@angular/material/table';
   styleUrls: ['./table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  // tslint:disable-next-line:no-host-metadata-property
   host: {
     class: 'ath-table',
   },
@@ -37,6 +42,8 @@ export class AthTableComponent<T> implements OnInit, AfterViewInit {
 
   @ViewChildren(AthNumericColumnComponent)
   numericColumns: QueryList<AthNumericColumnComponent<T>>;
+  @ViewChildren(AthEditableColumnComponent)
+  editableColumns: QueryList<AthEditableColumnComponent<T>>;
 
   @ViewChild(MatTable, { static: true }) table: MatTable<T>;
 
@@ -51,16 +58,25 @@ export class AthTableComponent<T> implements OnInit, AfterViewInit {
    */
   @Input() dataSource: DataSource<T>;
 
+  @Output() update = new EventEmitter<EditableColumnEvent<T>>();
+
   constructor(private changeDetector: ChangeDetectorRef) {}
 
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    this.numericColumns.forEach((numericCol) =>
-      this.table.addColumnDef(numericCol.matColumnDef)
+    this.numericColumns.forEach((col) =>
+      this.table.addColumnDef(col.matColumnDef)
+    );
+    this.editableColumns.forEach((col) =>
+      this.table.addColumnDef(col.matColumnDef)
     );
 
     this.displayedColumns = this.athColumnDefs?.map((x) => x.columnDefName);
     this.changeDetector.detectChanges();
+  }
+
+  onUpdate($event: EditableColumnEvent<T>): void {
+    this.update.emit($event);
   }
 }

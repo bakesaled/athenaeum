@@ -1,11 +1,19 @@
 <table mat-table [dataSource]="dataSource">
   <ng-container *ngFor="let colDef of athColumnDefs">
     <ng-container *ngIf="colDef.columnType === 'text'">
-      <ng-container [matColumnDef]="colDef.columnDefName">
-        <th mat-header-cell *matHeaderCellDef>{{ colDef.headerText }}</th>
-        <td mat-cell *matCellDef="let element">
-          {{ element[colDef.columnDefName] }}
-        </td>
+      <ng-container *ngIf="colDef.editable === true">
+        <ath-editable-column
+          [athColumnDef]="colDef"
+          (update)="onUpdate($event)"
+        ></ath-editable-column>
+      </ng-container>
+      <ng-container *ngIf="!colDef.editable">
+        <ng-container [matColumnDef]="colDef.columnDefName">
+          <th mat-header-cell *matHeaderCellDef>{{ colDef.headerText }}</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element[colDef.columnDefName] }}
+          </td>
+        </ng-container>
       </ng-container>
     </ng-container>
 

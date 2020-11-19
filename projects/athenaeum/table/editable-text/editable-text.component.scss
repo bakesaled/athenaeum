@@ -1,0 +1,41 @@
+:host {
+  display: block;
+
+  .mat-form-field {
+    border-left: rgba(0, 0, 0, 0.12) solid 1px;
+    border-right: rgba(0, 0, 0, 0.12) solid 1px;
+    line-height: unset;
+  }
+}
+
+:host::ng-deep .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+:host::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0;
+}
+
+:host::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+  padding-right: 1px;
+  padding-left: 1px;
+}
+
+:host::ng-deep .mat-form-field-infix {
+  border-top: 0;
+}
+
+:host::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border-radius: 0 !important;
+  border-style: none;
+}
+:host::ng-deep
+  .mat-form-field-appearance-outline
+  .mat-form-field-outline-start {
+  border-radius: 0 !important;
+  border-style: none;
+}
+:host::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-gap {
+  border-radius: 0 !important;
+  border-bottom: none;
+}

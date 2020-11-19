@@ -1,0 +1,15 @@
+<ng-container matColumnDef>
+  <th mat-header-cell class="ath-editable-header" *matHeaderCellDef>
+    {{ athColumnDef.headerText || athColumnDef.columnDefName }}
+  </th>
+  <td
+    mat-cell
+    class="ath-editable-cell"
+    *matCellDef="let element; let i = index"
+  >
+    <ath-editable-text
+      [value]="element[athColumnDef.columnDefName]"
+      (update)="onUpdate($event, element, i)"
+    ></ath-editable-text>
+  </td>
+</ng-container>
