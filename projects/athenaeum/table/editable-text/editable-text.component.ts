@@ -33,7 +33,7 @@ export class AthEditableTextComponent
 
   editMode$ = this.editModeSubject.asObservable();
 
-  @Output() update = new EventEmitter<any>();
+  @Output() update: EventEmitter<any> = new EventEmitter<any>();
 
   @Input()
   get value(): string {

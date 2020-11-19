@@ -1,4 +1,6 @@
-import { AthTableColumnDef } from '../../../../dist/athenaeum/table';
+// import { AthTableColumnDef } from '@bakesaled/athenaeum/table';
+
+import { AthTableColumnDef } from '../table-column-def';
 
 export class EditableColumnEvent<T> {
   constructor(

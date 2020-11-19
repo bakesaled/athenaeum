@@ -16,10 +16,8 @@ import { DataSource } from '@angular/cdk/collections';
 import { AthTableColumnDef } from './table-column-def';
 import { AthNumericColumnComponent } from './numeric-column/numeric-column.component';
 import { MatTable } from '@angular/material/table';
-import {
-  AthEditableColumnComponent,
-  EditableColumnEvent,
-} from '@bakesaled/athenaeum/table/editable-column';
+import { AthEditableColumnComponent } from './editable-column/editable-column.component';
+import { EditableColumnEvent } from './editable-column/editable-column.event';
 
 /**
  * A data table that displays rows of data.
@@ -58,7 +56,9 @@ export class AthTableComponent<T> implements OnInit, AfterViewInit {
    */
   @Input() dataSource: DataSource<T>;
 
-  @Output() update = new EventEmitter<EditableColumnEvent<T>>();
+  @Output() update: EventEmitter<EditableColumnEvent<T>> = new EventEmitter<
+    EditableColumnEvent<T>
+  >();
 
   constructor(private changeDetector: ChangeDetectorRef) {}
 

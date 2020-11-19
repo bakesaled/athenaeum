@@ -71,34 +71,34 @@ export class ComponentReader {
         { encodeEverything: true }
       );
 
-      // Get inputs
-      if (trimmedLine.startsWith('@Input()')) {
+      // Get inputs and outputs
+      if (
+        trimmedLine.startsWith('@Input()') ||
+        trimmedLine.startsWith('@Output()')
+      ) {
+        let linePieces;
         if (trimmedLine.length === 8) {
-          const linePieces = lines[idx + 1].trim().split(':');
-          componentMetaData.properties.push({
-            name: linePieces[0],
-            type: linePieces[1].replace(';', '').trim(),
-            encodedType: he.encode(linePieces[1].replace(';', '').trim(), {
-              encodeEverything: true,
-            }),
-            comment: this.backupAndReadComment(lines, line, idx, linePieces[0]),
-            decorator: 'input',
-          });
+          linePieces = lines[idx + 1].trim().split(':');
         } else {
-          const linePieces = lines[idx]
+          linePieces = lines[idx]
             .replace('@Input()', '')
+            .replace('@Output()', '')
             .trim()
             .split(':');
-          componentMetaData.properties.push({
-            name: linePieces[0],
-            type: linePieces[1].replace(';', '').trim(),
-            encodedType: he.encode(linePieces[1].replace(';', '').trim(), {
-              encodeEverything: true,
-            }),
-            comment: this.backupAndReadComment(lines, line, idx, linePieces[0]),
-            decorator: 'input',
-          });
         }
+
+        if (linePieces[1].indexOf('=')) {
+          linePieces[1] = linePieces[1].split('=')[0];
+        }
+        componentMetaData.properties.push({
+          name: linePieces[0],
+          type: linePieces[1].replace(';', '').trim(),
+          encodedType: he.encode(linePieces[1].replace(';', '').trim(), {
+            encodeEverything: true,
+          }),
+          comment: this.backupAndReadComment(lines, line, idx, linePieces[0]),
+          decorator: trimmedLine.startsWith('@Input()') ? 'input' : 'output',
+        });
       }
     });
     logDebug('component parts', componentMetaData);

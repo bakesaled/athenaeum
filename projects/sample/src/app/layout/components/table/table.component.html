@@ -11,10 +11,20 @@
   <pre><code [innerHTML]="component.encodedUsageText"></code></pre>
   <h2>Inputs</h2>
   <ul>
-    <li *ngFor="let input of getInputs(component)">
+    <li *ngFor="let input of getDecoratorProps(component, 'input')">
       <code
         ><strong>{{ input.name }}</strong
         >: <i [innerHTML]="input.encodedType"></i
+      ></code>
+    </li>
+  </ul>
+
+  <h2>Outputs</h2>
+  <ul>
+    <li *ngFor="let output of getDecoratorProps(component, 'output')">
+      <code
+        ><strong>{{ output.name }}</strong
+        >: <i [innerHTML]="output.encodedType"></i
       ></code>
     </li>
   </ul>

@@ -8,7 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AthEditableTextComponent } from './editable-text/editable-text.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FocusableDirective } from '@bakesaled/athenaeum/table/editable-text/focusable.directive';
+import { FocusableDirective } from './editable-text/focusable.directive';
 
 @NgModule({
   declarations: [

@@ -15,7 +15,10 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getInputs(component: ComponentMetaData): ComponentProperty[] {
-    return component.properties.filter((c) => c.decorator === 'input');
+  getDecoratorProps(
+    component: ComponentMetaData,
+    decoratorName: string
+  ): ComponentProperty[] {
+    return component.properties.filter((c) => c.decorator === decoratorName);
   }
 }

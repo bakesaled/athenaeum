@@ -10,8 +10,8 @@ import {
   Output,
 } from '@angular/core';
 import { MatColumnDef, MatTable } from '@angular/material/table';
-import { AthTableColumnDef } from '@bakesaled/athenaeum/table';
-import { EditableColumnEvent } from '@bakesaled/athenaeum/table/editable-column/editable-column.event';
+import { AthTableColumnDef } from '../table-column-def';
+import { EditableColumnEvent } from './editable-column.event';
 
 @Component({
   selector: 'ath-editable-column',
@@ -23,7 +23,9 @@ export class AthEditableColumnComponent<T> implements OnInit, OnDestroy {
   @ViewChild(MatColumnDef, { static: true }) matColumnDef: MatColumnDef;
 
   @Input() athColumnDef: AthTableColumnDef;
-  @Output() update = new EventEmitter<EditableColumnEvent<T>>();
+  @Output() update: EventEmitter<EditableColumnEvent<T>> = new EventEmitter<
+    EditableColumnEvent<T>
+  >();
 
   constructor(@Optional() public table: MatTable<any>) {}
 
