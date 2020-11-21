@@ -1,0 +1,5 @@
+@import 'table/table.component.scss-theme';
+
+@mixin athenaeum-theme($theme) {
+  @include table-component-theme($theme);
+}

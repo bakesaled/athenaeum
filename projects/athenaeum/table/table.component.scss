@@ -1,5 +1,17 @@
 .ath-table {
   table {
     width: 100%;
+
+    tr.mat-row,
+    tr.mat-footer-row,
+    tr.mat-header-row {
+      height: 28px;
+    }
+
+    tr.mat-header-row {
+      > th.mat-header-cell {
+        text-transform: uppercase;
+      }
+    }
   }
 }

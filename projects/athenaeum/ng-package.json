@@ -1,6 +1,7 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/athenaeum",
+  "assets": ["**/*.scss-theme.scss", "_theming.scss"],
   "lib": {
     "entryFile": "public-api.ts"
   }

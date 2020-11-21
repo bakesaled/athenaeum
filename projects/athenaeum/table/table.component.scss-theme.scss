@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+
+@mixin table-component-color($config-or-theme) {
+  $config: mat-get-color-config($config-or-theme);
+  $primary: map-get($config, primary);
+
+  tr.mat-header-row {
+    > th.mat-header-cell {
+      color: mat-color($primary);
+    }
+  }
+}
+
+@mixin table-component-theme($theme) {
+  $color: mat-get-color-config($theme);
+
+  @if $color != null {
+    @include table-component-color($color);
+  }
+}

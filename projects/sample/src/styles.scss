@@ -1,4 +1,5 @@
 @import '~@angular/material/theming';
+@import 'projects/athenaeum/theming';
 
 @include mat-core();
 
@@ -16,6 +17,7 @@
 
 @include angular-material-theme($ath-light-theme);
 @include custom-components-theme($ath-light-theme);
+@include athenaeum-theme($ath-light-theme);
 
 html,
 body {
