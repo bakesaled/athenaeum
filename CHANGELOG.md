@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/bakesaled/athenaeum/compare/v0.1.3...v0.1.4) (2020-11-22)
+
+
+### Features
+
+* **demo:** getting started doc ([85673cc](https://github.com/bakesaled/athenaeum/commit/85673cca398c5e841c04005538de299546cce40e))
+* support material theme colors ([8e41e6c](https://github.com/bakesaled/athenaeum/commit/8e41e6cc461f2000d422b854960e50b6f475f6de))
+
 ### [0.1.3](https://github.com/bakesaled/athenaeum/compare/v0.1.2...v0.1.3) (2020-11-19)
 
 
