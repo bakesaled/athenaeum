@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { HttpClientModule } from '@angular/common/http';
+import { persistState } from '@datorama/akita';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
           logTrace: false,
         }),
   ],
-  providers: [],
+  providers: [{ provide: 'persistStorage', useValue: persistState() }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
