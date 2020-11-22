@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from '../shared/shared.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationModule } from './navigation/navigation.module';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('LayoutComponent', () => {
   let component: LayoutComponent;
@@ -18,6 +19,7 @@ describe('LayoutComponent', () => {
         SharedModule,
         NoopAnimationsModule,
         NavigationModule,
+        HttpClientTestingModule,
       ],
     }).compileComponents();
   });

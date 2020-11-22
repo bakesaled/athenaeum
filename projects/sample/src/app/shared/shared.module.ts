@@ -10,6 +10,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 export const MATERIAL_MODULES = [
   MatSidenavModule,
@@ -21,6 +22,7 @@ export const MATERIAL_MODULES = [
   MatExpansionModule,
   MatGridListModule,
   MatCardModule,
+  MatSlideToggleModule,
 ];
 
 export const ATHENAEUM_MODULES = [AthTableModule];

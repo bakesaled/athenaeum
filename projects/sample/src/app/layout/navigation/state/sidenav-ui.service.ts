@@ -20,6 +20,12 @@ export class SidenavUiService {
       .pipe(tap((items) => this.updateNavItems(items)));
   }
 
+  toggleIsDarkTheme(): void {
+    this.sidenavStore.updateUI({
+      isDarkTheme: !this.sidenavUiQuery.getIsDarkTheme(),
+    });
+  }
+
   updateNavItems(navItems: NavItem[]): void {
     this.sidenavStore.updateUI({
       navItems: [...navItems],

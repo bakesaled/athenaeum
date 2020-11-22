@@ -11,6 +11,7 @@ export class SidenavUiQuery extends QueryEntity<SidenavState> {
   selectedNavItem$ = this.select((state) => state.ui.selectedNavItem);
   expandedNavItems$ = this.select((state) => state.ui.expandedNavItems);
   componentNavItems$ = this.select((state) => state.ui.navItems[1].children);
+  isDarkTheme$ = this.select((state) => state.ui.isDarkTheme);
 
   constructor(protected store: SidenavUiStore) {
     super(store);
@@ -61,5 +62,9 @@ export class SidenavUiQuery extends QueryEntity<SidenavState> {
 
   getExpandedNavItems(): NavItem[] {
     return this.getValue().ui.expandedNavItems;
+  }
+
+  getIsDarkTheme(): boolean {
+    return this.getValue().ui.isDarkTheme;
   }
 }

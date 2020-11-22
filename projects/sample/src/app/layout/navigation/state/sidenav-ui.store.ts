@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { EntityState, EntityStore, StoreConfig } from '@datorama/akita';
 import {
   SIDENAV_UI_EXPANDED_NAV_ITEMS,
+  SIDENAV_UI_IS_DARK_THEME,
   SIDENAV_UI_NAV_ITEMS,
   SIDENAV_UI_SELECTED_NAV_ITEM,
   SidenavUI,
@@ -16,6 +17,7 @@ const initialState = {
     navItems: SIDENAV_UI_NAV_ITEMS,
     selectedNavItem: SIDENAV_UI_SELECTED_NAV_ITEM,
     expandedNavItems: SIDENAV_UI_EXPANDED_NAV_ITEMS,
+    isDarkTheme: SIDENAV_UI_IS_DARK_THEME,
   },
 };
 

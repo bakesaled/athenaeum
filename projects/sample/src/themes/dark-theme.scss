@@ -8,4 +8,4 @@ $ath-accent: mat-palette($md-orange-palette);
 $ath-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$ath-light-theme: mat-light-theme($ath-primary, $ath-accent, $ath-warn);
+$ath-dark-theme: mat-dark-theme($ath-primary, $ath-accent, $ath-warn);

@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+
+@mixin editable-text-component-color($config-or-theme) {
+  $config: mat-get-color-config($config-or-theme);
+  //$primary: map-get($config, primary);
+  $foreground: map-get($config, foreground);
+
+  .mat-form-field {
+    border-left: mat-color($foreground, divider) solid 1px;
+    border-right: mat-color($foreground, divider) solid 1px;
+  }
+}
+
+@mixin editable-text-component-theme($theme) {
+  $color: mat-get-color-config($theme);
+
+  @if $color != null {
+    @include editable-text-component-color($color);
+  }
+}

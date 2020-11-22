@@ -1,0 +1,29 @@
+.mat-slide-toggle {
+  transform: rotate(90deg);
+}
+
+:host::ng-deep .mat-slide-toggle-thumb,
+:host::ng-deep .mat-slide-toggle-bar {
+  border-radius: 0;
+}
+
+:host::ng-deep .mat-slide-toggle-bar {
+  width: 28px;
+}
+
+:host::ng-deep .mat-slide-toggle-thumb {
+  height: 14px;
+  width: 14px;
+  box-shadow: none;
+}
+
+:host::ng-deep .mat-slide-toggle-thumb-container {
+  top: 0;
+  height: 14px;
+  width: 14px;
+}
+
+:host::ng-deep .mat-slide-toggle .mat-slide-toggle-ripple {
+  top: calc(50% - 21px);
+  left: calc(50% - 14px);
+}

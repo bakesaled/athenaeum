@@ -1,7 +1,11 @@
 <section>
   <mat-toolbar color="primary">
-    <a mat-button [routerLink]="'./'">Athenaeum </a></mat-toolbar
-  >
+    <a mat-button [routerLink]="'./'">Athenaeum </a>
+    <mat-slide-toggle
+      [checked]="sidenavUiQuery.isDarkTheme$ | async"
+      (change)="onThemeChange($event)"
+    ></mat-slide-toggle>
+  </mat-toolbar>
   <mat-nav-list>
     <app-nav-list-item
       *ngFor="let item of sidenavUiQuery.navItems$ | async"

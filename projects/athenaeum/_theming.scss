@@ -1,5 +1,7 @@
 @import 'table/table.component.scss-theme';
+@import 'table/editable-text/editable-text.component.scss-theme';
 
 @mixin athenaeum-theme($theme) {
   @include table-component-theme($theme);
+  @include editable-text-component-theme($theme);
 }
