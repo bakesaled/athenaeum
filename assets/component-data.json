@@ -12,14 +12,14 @@
         "name": "dataSource",
         "type": "DataSource<T>",
         "encodedType": "&#x44;&#x61;&#x74;&#x61;&#x53;&#x6F;&#x75;&#x72;&#x63;&#x65;&#x3C;&#x54;&#x3E;",
-        "comment": "Datasource.",
+        "comment": "Observable stream of data.",
         "decorator": "input"
       },
       {
         "name": "update",
         "type": "EventEmitter<EditableColumnEvent<T>>",
         "encodedType": "&#x45;&#x76;&#x65;&#x6E;&#x74;&#x45;&#x6D;&#x69;&#x74;&#x74;&#x65;&#x72;&#x3C;&#x45;&#x64;&#x69;&#x74;&#x61;&#x62;&#x6C;&#x65;&#x43;&#x6F;&#x6C;&#x75;&#x6D;&#x6E;&#x45;&#x76;&#x65;&#x6E;&#x74;&#x3C;&#x54;&#x3E;&#x3E;",
-        "comment": "Datasource.",
+        "comment": "Event triggered when cell value is updated.",
         "decorator": "output"
       }
     ],
