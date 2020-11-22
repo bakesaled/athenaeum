@@ -52,10 +52,13 @@ export class AthTableComponent<T> implements OnInit, AfterViewInit {
   athColumnDefs: AthTableColumnDef[];
 
   /**
-   * Datasource.
+   * Observable stream of data.
    */
   @Input() dataSource: DataSource<T>;
 
+  /**
+   * Event triggered when cell value is updated.
+   */
   @Output() update: EventEmitter<EditableColumnEvent<T>> = new EventEmitter<
     EditableColumnEvent<T>
   >();

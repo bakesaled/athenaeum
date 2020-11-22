@@ -1,10 +1,12 @@
 section {
   text-align: center;
   margin-top: 100px;
+  height: 70px;
 }
-
-mat-toolbar {
+.app-top-toolbar {
   height: 200px;
+}
+mat-toolbar {
   justify-content: center;
   .headliner {
     font-size: 56px;

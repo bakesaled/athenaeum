@@ -1,5 +1,12 @@
 [
   {
+    "text": "Get Started",
+    "level": 1,
+    "route": "/get-started",
+    "expandable": false,
+    "path": "/get-started"
+  },
+  {
     "text": "Components",
     "level": 0,
     "route": "/components",

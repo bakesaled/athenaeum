@@ -6,7 +6,15 @@
       <mat-card-content (click)="onCardClick(navItem)">{{
         navItem.text
       }}</mat-card-content>
-      <mat-card-footer> description here </mat-card-footer>
+      <mat-card-footer
+        *ngIf="
+          componentsUiQuery.selectComponentsByName(
+            'ath' + navItem.text.toLowerCase()
+          ) | async as component
+        "
+        [innerHTML]="component.comment"
+      >
+      </mat-card-footer>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

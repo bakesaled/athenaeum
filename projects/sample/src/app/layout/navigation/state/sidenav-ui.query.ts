@@ -10,7 +10,7 @@ export class SidenavUiQuery extends QueryEntity<SidenavState> {
   navItems$ = this.select((state) => state.ui.navItems);
   selectedNavItem$ = this.select((state) => state.ui.selectedNavItem);
   expandedNavItems$ = this.select((state) => state.ui.expandedNavItems);
-  componentNavItems$ = this.select((state) => state.ui.navItems[0].children);
+  componentNavItems$ = this.select((state) => state.ui.navItems[1].children);
 
   constructor(protected store: SidenavUiStore) {
     super(store);

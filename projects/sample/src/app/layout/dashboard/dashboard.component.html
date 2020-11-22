@@ -1,12 +1,26 @@
 <article>
   <div class="article-content">
-    <mat-toolbar style="height: 200px" color="primary">
+    <mat-toolbar class="app-top-toolbar" color="primary">
       <h1 class="headliner">Athenaeum</h1>
     </mat-toolbar>
-    <section style="height: 500px">
+    <section>
       <h1>
         A library of UI components and tools based on Angular and Material.
       </h1>
+    </section>
+    <section>
+      <mat-toolbar color="primary">
+        <a mat-button [routerLink]="['./get-started']"
+          >Get Started</a
+        ></mat-toolbar
+      >
+    </section>
+    <section>
+      <mat-toolbar color="primary">
+        <a mat-button [routerLink]="['./components']"
+          >View all Components</a
+        ></mat-toolbar
+      >
     </section>
   </div>
 </article>

@@ -13,6 +13,20 @@
 @mixin custom-components-theme($theme) {
   @include nav-list-item-component-theme($theme);
   @include components-component-theme($theme);
+
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  pre {
+    background: mat-color($background, app-bar); // rgba(0,0,0,.01);
+    border: 0.5px solid mat-color($foreground, divider); // rgba(0,0,0,.2);
+    code {
+      background-color: transparent;
+    }
+  }
+  code {
+    background-color: mat-color($background, hover);
+  }
 }
 
 @include angular-material-theme($ath-light-theme);
@@ -31,4 +45,23 @@ body {
 main section {
   margin-top: 20px;
   margin-bottom: 40px;
+}
+
+pre {
+  border-radius: 5px;
+  display: block;
+  margin: 16px auto;
+  overflow-x: auto;
+  padding: 20px;
+  white-space: pre-wrap;
+  code {
+    padding: 0;
+    font-weight: normal;
+  }
+}
+
+code {
+  padding: 3px;
+  font-weight: bold;
+  font-family: monospace;
 }

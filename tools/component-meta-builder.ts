@@ -104,6 +104,13 @@ export class ComponentMetaBuilder {
   buildNavItems(componentMetaDatas: ComponentMetaData[]): NavItem[] {
     const navItems: NavItem[] = [
       {
+        text: 'Get Started',
+        level: 1,
+        route: '/get-started',
+        expandable: false,
+        path: '/get-started',
+      },
+      {
         text: 'Components',
         level: 0,
         route: '/components',
@@ -135,7 +142,7 @@ export class ComponentMetaBuilder {
         });
       });
 
-      navItems[0].children.push(componentNavItem);
+      navItems[1].children.push(componentNavItem);
     });
 
     return navItems;
