@@ -13,6 +13,11 @@ const routes: Routes = [
       import('./table/table.module').then((m) => m.TableModule),
   },
   {
+    path: 'input',
+    loadChildren: () =>
+      import('./input/input.module').then((m) => m.InputModule),
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full',

@@ -70,8 +70,9 @@ export class ComponentMetaBuilder {
       );
       logDebug(componentNameKebab);
 
-      const componentFileName = readdirSync(compDir).find((compFile) =>
-        compFile.endsWith('component.ts')
+      const componentFileName = readdirSync(compDir).find(
+        (compFile) =>
+          compFile.endsWith('component.ts') || compFile.endsWith('directive.ts')
       );
       const componentMetaData = this.componentReader.readComponentTsFile(
         compDir,

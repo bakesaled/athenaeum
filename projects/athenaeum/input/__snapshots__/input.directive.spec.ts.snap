@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputDirective should render 1`] = `
+<ng-component>
+  <mat-form-field
+    class="mat-form-field mat-primary"
+  >
+    <div
+      class="mat-form-field-wrapper"
+    >
+      <div
+        class="mat-form-field-flex"
+      >
+        
+        
+        <div
+          class="mat-form-field-infix"
+        >
+          <input
+            athinput=""
+            class="ath-input-element mat-input-element mat-form-field-autofill-control"
+            matinput=""
+            placeholder="Enter text here"
+          />
+          <span
+            class="mat-form-field-label-wrapper"
+          >
+            
+          </span>
+        </div>
+        
+      </div>
+      
+      <div
+        class="mat-form-field-subscript-wrapper"
+      >
+        
+        
+      </div>
+    </div>
+  </mat-form-field>
+</ng-component>
+`;

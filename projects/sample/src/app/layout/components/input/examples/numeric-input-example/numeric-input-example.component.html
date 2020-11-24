@@ -1,0 +1,71 @@
+<div class="numeric-input-example-container">
+  <div class="example-pane">
+    <h3>Calculator</h3>
+    <form [formGroup]="calcForm" (ngSubmit)="onSubmit()" (reset)="onReset()">
+      <div class="app-form-row">
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            athInput
+            formControlName="operandOne"
+            [digitInfo]="digitInfo$ | async"
+            [valueType]="'number'"
+            #operandOneInput
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="app-form-row">
+        <mat-button-toggle-group
+          formControlName="operator"
+          class="app-operator"
+        >
+          <mat-button-toggle *ngFor="let op of operators" [value]="op">{{
+            op.text
+          }}</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+
+      <div class="app-form-row">
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            athInput
+            formControlName="operandTwo"
+            [digitInfo]="'1.0-2'"
+            [valueType]="'number'"
+          />
+        </mat-form-field>
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="calcForm.invalid"
+        class="app-action-button"
+      >
+        Calculate
+      </button>
+      <button mat-raised-button type="reset">Reset</button>
+    </form>
+    <label *ngIf="!!result || result === 0">Result: {{ result }}</label>
+  </div>
+  <div class="example-pane">
+    <h3>Configuration</h3>
+    <form [formGroup]="configForm">
+      <div class="app-form-row">
+        <label>Max decimal precision:</label>
+      </div>
+      <div class="app-form-row">
+        <mat-button-toggle-group
+          formControlName="decimals"
+          class="app-operator"
+        >
+          <mat-button-toggle *ngFor="let dec of decimals" [value]="dec">{{
+            dec
+          }}</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { DisplayMetaData } from '../../../core/display-meta-data';
 import { ComponentsUiQuery } from '../state/components-ui.query';
 import {
   ComponentMetaData,
   ComponentProperty,
 } from '../state/components-ui.model';
-import { DisplayMetaData } from '../../../core/display-meta-data';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss'],
+  selector: 'app-input',
+  templateUrl: './input.component.html',
+  styleUrls: ['./input.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TableComponent implements OnInit, DisplayMetaData {
+export class InputComponent implements OnInit, DisplayMetaData {
   constructor(public componentsUiQuery: ComponentsUiQuery) {}
 
   ngOnInit(): void {}

@@ -1,0 +1,27 @@
+.numeric-input-example-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.example-pane {
+  border-width: 1px;
+  border-style: solid;
+  padding: 20px;
+}
+form {
+  .app-form-row {
+    width: 100%;
+    mat-form-field {
+      width: 139px;
+    }
+
+    .app-operator {
+      font-size: 20px;
+      margin-bottom: 18px;
+    }
+  }
+  .app-action-button {
+    margin-right: 10px;
+  }
+}

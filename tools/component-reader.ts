@@ -27,16 +27,24 @@ export class ComponentReader {
 
     const lines = content.split('\n');
 
+    const isComponent = componentFileName.endsWith('component.ts');
+
     lines.forEach((line, idx) => {
       const trimmedLine = line.trim();
+      if (trimmedLine.startsWith('import ')) {
+        return;
+      }
 
       // Get main component comment
-      if (trimmedLine.startsWith('@Component(')) {
+      if (
+        trimmedLine.startsWith('@Component(') ||
+        trimmedLine.startsWith('@Directive(')
+      ) {
         componentMetaData.comment = this.backupAndReadComment(
           lines,
           trimmedLine,
           idx,
-          '@Component'
+          isComponent ? '@Component' : '@Directive'
         );
 
         if (lines[idx + 1].trim().startsWith('selector:')) {
@@ -47,16 +55,25 @@ export class ComponentReader {
         } else {
           throw Error('Selector not first property in Component decorator');
         }
+        logDebug('Found selector', componentMetaData.selector);
         return;
       }
 
       // Get component name
       if (trimmedLine.startsWith('export class ')) {
-        componentMetaData.name = trimmedLine
-          .match(/[\s\S]*export class (.*Component)/)[1]
-          .trim()
-          .replace('Component', '');
-        return;
+        if (isComponent) {
+          componentMetaData.name = trimmedLine
+            .match(/[\s\S]*export class (.*Component)/)[1]
+            .trim()
+            .replace('Component', '');
+          return;
+        } else {
+          componentMetaData.name = trimmedLine
+            .match(/[\s\S]*export class (.*Directive)/)[1]
+            .trim()
+            .replace('Directive', '');
+          return;
+        }
       }
 
       componentMetaData.encodedImportText = he.encode(
@@ -66,10 +83,34 @@ export class ComponentReader {
         { encodeEverything: true }
       );
 
-      componentMetaData.encodedUsageText = he.encode(
-        `<${componentMetaData.selector}></${componentMetaData.selector}>`,
-        { encodeEverything: true }
-      );
+      if (componentMetaData.selector) {
+        componentMetaData.encodedUsageText = '';
+        if (isComponent) {
+          componentMetaData.encodedUsageText = he.encode(
+            `<${componentMetaData.selector}></${componentMetaData.selector}>`,
+            { encodeEverything: true }
+          );
+        } else {
+          let selectors: string[];
+          if (componentMetaData.selector.indexOf(',')) {
+            selectors = componentMetaData.selector.split(',');
+          } else {
+            selectors = [componentMetaData.selector];
+          }
+
+          selectors.forEach((selector) => {
+            const selectorParts = selector.split('[');
+            const selectorTargetElement = selectorParts[0].trim();
+            const plainSelector = selectorParts[1].split(']')[0].trim();
+            componentMetaData.encodedUsageText = componentMetaData.encodedUsageText.appendLine(
+              he.encode(
+                `<${selectorTargetElement} ${plainSelector}></${selectorTargetElement}>`,
+                { encodeEverything: true }
+              )
+            );
+          });
+        }
+      }
 
       // Get inputs and outputs
       if (
@@ -79,6 +120,11 @@ export class ComponentReader {
         let linePieces;
         if (trimmedLine.length === 8) {
           linePieces = lines[idx + 1].trim().split(':');
+
+          if (linePieces[0].startsWith('get')) {
+            linePieces[0] = linePieces[0].replace('get ', '').replace('()', '');
+            linePieces[1] = linePieces[1].replace(' {', '');
+          }
         } else {
           linePieces = lines[idx]
             .replace('@Input()', '')

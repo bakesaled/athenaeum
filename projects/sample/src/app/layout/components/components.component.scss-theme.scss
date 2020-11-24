@@ -2,6 +2,7 @@
 
 @mixin components-component-theme($theme) {
   $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
 
   .mat-card {
     &--selected,
@@ -9,5 +10,9 @@
     &:focus {
       background-color: mat-color($background, hover, 0.12);
     }
+  }
+
+  .example-pane {
+    border-color: mat-color($foreground, divider);
   }
 }

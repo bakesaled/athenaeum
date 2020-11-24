@@ -5,9 +5,11 @@
   //$primary: map-get($config, primary);
   $foreground: map-get($config, foreground);
 
-  .mat-form-field {
-    border-left: mat-color($foreground, divider) solid 1px;
-    border-right: mat-color($foreground, divider) solid 1px;
+  :host {
+    .mat-form-field {
+      border-left: mat-color($foreground, divider) solid 1px;
+      border-right: mat-color($foreground, divider) solid 1px;
+    }
   }
 }
 

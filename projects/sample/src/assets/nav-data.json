@@ -14,6 +14,24 @@
     "path": "/components",
     "children": [
       {
+        "text": "Input",
+        "level": 1,
+        "route": "/components/input",
+        "expandable": true,
+        "path": "/components/input",
+        "parentPath": "/components",
+        "children": [
+          {
+            "text": "Numeric Example",
+            "level": 2,
+            "route": "/components/input",
+            "fragment": "numeric",
+            "path": "/components/input#numeric",
+            "parentPath": "/components/input"
+          }
+        ]
+      },
+      {
         "text": "Table",
         "level": 1,
         "route": "/components/table",

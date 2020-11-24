@@ -11,6 +11,11 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AthInputModule } from '@bakesaled/athenaeum/input';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 export const MATERIAL_MODULES = [
   MatSidenavModule,
@@ -23,9 +28,13 @@ export const MATERIAL_MODULES = [
   MatGridListModule,
   MatCardModule,
   MatSlideToggleModule,
+  MatInputModule,
+  MatFormFieldModule,
+  ReactiveFormsModule,
+  MatButtonToggleModule,
 ];
 
-export const ATHENAEUM_MODULES = [AthTableModule];
+export const ATHENAEUM_MODULES = [AthTableModule, AthInputModule];
 
 @NgModule({
   declarations: [],
