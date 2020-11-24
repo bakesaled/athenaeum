@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/bakesaled/athenaeum/compare/v0.1.4...v0.1.5) (2020-11-24)
+
+
+### Features
+
+* input with initial numeric support ([c513b4e](https://github.com/bakesaled/athenaeum/commit/c513b4e4b91aca55316ce88a076f96af36dc5906))
+* **demo:** adding dark theme switch ([9bd3c07](https://github.com/bakesaled/athenaeum/commit/9bd3c07d6bf32ec7f0c1f121d91924a7bb080c66))
+* **demo:** persist state ([0dcdf5b](https://github.com/bakesaled/athenaeum/commit/0dcdf5baec9177b0434be719f30dd3bcc85ce019))
+
 ### [0.1.4](https://github.com/bakesaled/athenaeum/compare/v0.1.3...v0.1.4) (2020-11-22)
 
 
