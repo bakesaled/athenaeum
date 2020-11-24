@@ -32,7 +32,7 @@
             matInput
             athInput
             formControlName="operandTwo"
-            [digitInfo]="'1.0-2'"
+            [digitInfo]="digitInfo$ | async"
             [valueType]="'number'"
           />
         </mat-form-field>
