@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/bakesaled/athenaeum/compare/v0.1.5...v0.1.6) (2020-12-13)
+
+
+### Features
+
+* side-tabs ([8582b69](https://github.com/bakesaled/athenaeum/commit/8582b697dc383be432a11b7ed1c4b3e29e2b7dc0))
+
+
+### Bug Fixes
+
+* **demo:** second operand digitInfo should be dynamic ([c3a70d2](https://github.com/bakesaled/athenaeum/commit/c3a70d2e4121d93936168f911105fb3e469f7aec))
+
 ### [0.1.5](https://github.com/bakesaled/athenaeum/compare/v0.1.4...v0.1.5) (2020-11-24)
 
 
