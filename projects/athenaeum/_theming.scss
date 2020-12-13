@@ -1,7 +1,11 @@
 @import 'table/table.component.scss-theme';
 @import 'table/editable-text/editable-text.component.scss-theme';
+@import 'side-tabs/side-tabs.component.scss-theme';
+@import 'side-tabs/tab-header/tab-header.component.scss-theme';
 
 @mixin athenaeum-theme($theme) {
   @include table-component-theme($theme);
   @include editable-text-component-theme($theme);
+  @include side-tabs-component-theme($theme);
+  @include tab-header-component-theme($theme);
 }

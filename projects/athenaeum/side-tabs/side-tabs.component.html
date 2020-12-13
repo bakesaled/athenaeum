@@ -1,0 +1,21 @@
+<div class="ath-side-tabs-container">
+  <ath-tab-body
+    *ngFor="let tab of tabs; let i = index"
+    [content]="tab.content"
+    [class.ath-tab-body--active]="selectedIndex == i"
+  ></ath-tab-body>
+  <ath-tab-header #tabHeader>
+    <div
+      class="ath-tab-label"
+      role="tab"
+      *ngFor="let tab of tabs; let i = index"
+      [class.ath-tab-label--selected]="selectedIndex == i"
+      (click)="handleClick(tab, tabHeader, i)"
+    >
+      <div class="ath-tab-label-child">
+        {{ tab.label }}
+        <ng-template>{{ tab.label }}</ng-template>
+      </div>
+    </div>
+  </ath-tab-header>
+</div>

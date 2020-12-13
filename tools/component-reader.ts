@@ -118,7 +118,7 @@ export class ComponentReader {
         trimmedLine.startsWith('@Output()')
       ) {
         let linePieces;
-        if (trimmedLine.length === 8) {
+        if (trimmedLine.length === 8 || trimmedLine.length === 9) {
           linePieces = lines[idx + 1].trim().split(':');
 
           if (linePieces[0].startsWith('get')) {
@@ -132,6 +132,8 @@ export class ComponentReader {
             .trim()
             .split(':');
         }
+
+        logDebug('line pieces', trimmedLine, linePieces);
 
         if (linePieces[1].indexOf('=')) {
           linePieces[1] = linePieces[1].split('=')[0];

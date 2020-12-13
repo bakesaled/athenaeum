@@ -1,0 +1,31 @@
+:host {
+  display: block;
+
+  .ath-side-tabs-container {
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+  }
+
+  .ath-tab-label {
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    height: 100px;
+    &:hover {
+      cursor: pointer;
+    }
+
+    .ath-tab-label-child {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%) rotate(90deg);
+      white-space: nowrap;
+    }
+  }
+
+  .ath-tab-body.ath-tab-body--active {
+    display: block;
+  }
+}

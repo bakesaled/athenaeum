@@ -1,0 +1,18 @@
+@import '~@angular/material/theming';
+
+@mixin tab-header-component-color($config-or-theme) {
+  $config: mat-get-color-config($config-or-theme);
+  $foreground: map-get($config, foreground);
+
+  .ath-tab-header {
+    border-left-color: mat-color($foreground, divider);
+  }
+}
+
+@mixin tab-header-component-theme($theme) {
+  $color: mat-get-color-config($theme);
+
+  @if $color != null {
+    @include tab-header-component-color($color);
+  }
+}

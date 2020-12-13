@@ -1,0 +1,10 @@
+:host {
+  border-left-style: solid;
+  border-left-width: 1px;
+  .ath-tab-labels {
+    width: 20px;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}

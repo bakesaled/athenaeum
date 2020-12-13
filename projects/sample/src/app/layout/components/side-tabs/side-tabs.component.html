@@ -1,0 +1,57 @@
+<ng-container
+  *ngIf="
+    componentsUiQuery.selectComponentsByName('athsidetabs') | async as component
+  "
+>
+  <h1>{{ component.simpleName }}</h1>
+  <p>{{ component.comment }}</p>
+  <h2>Import</h2>
+  <pre><code [innerHTML]="component.encodedImportText"></code></pre>
+  <h2>Usage</h2>
+  <pre><code [innerHTML]="component.encodedUsageText"></code></pre>
+  <h2>Inputs</h2>
+  <ul>
+    <li *ngFor="let input of getDecoratorProps(component, 'input')">
+      <code>{{ input.name }}: <i [innerHTML]="input.encodedType"></i></code>
+      - {{ input.comment }}
+    </li>
+  </ul>
+
+  <h2>Outputs</h2>
+  <ul *ngIf="getDecoratorProps(component, 'output') as outputs">
+    <li *ngFor="let output of outputs">
+      <code>{{ output.name }}: <i [innerHTML]="output.encodedType"></i></code>
+      - {{ output.comment }}
+    </li>
+  </ul>
+  <p *ngIf="getDecoratorProps(component, 'output')">None</p>
+
+  <section
+    *ngFor="let example of component.examples"
+    [id]="example.simpleName.toLowerCase()"
+  >
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> {{ example.name }} </mat-panel-title>
+        <mat-panel-description style="justify-content: flex-end">
+          view source
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-tab-group>
+        <mat-tab label="HTML">
+          <pre><code [innerHTML]="example.html"></code></pre>
+        </mat-tab>
+        <mat-tab label="SCSS">
+          <pre><code [innerHTML]="example.scss"></code></pre>
+        </mat-tab>
+        <mat-tab label="TS">
+          <pre><code [innerHTML]="example.ts"></code></pre>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-expansion-panel>
+
+    <app-basic-side-tabs-example
+      *ngIf="example.simpleName.toLowerCase() === 'basic'"
+    ></app-basic-side-tabs-example>
+  </section>
+</ng-container>

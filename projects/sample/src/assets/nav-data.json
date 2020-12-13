@@ -32,6 +32,24 @@
         ]
       },
       {
+        "text": "Side-tabs",
+        "level": 1,
+        "route": "/components/side-tabs",
+        "expandable": true,
+        "path": "/components/side-tabs",
+        "parentPath": "/components",
+        "children": [
+          {
+            "text": "Basic Example",
+            "level": 2,
+            "route": "/components/side-tabs",
+            "fragment": "basic",
+            "path": "/components/side-tabs#basic",
+            "parentPath": "/components/side-tabs"
+          }
+        ]
+      },
+      {
         "text": "Table",
         "level": 1,
         "route": "/components/table",

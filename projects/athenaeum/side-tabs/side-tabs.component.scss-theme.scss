@@ -1,0 +1,25 @@
+@import '~@angular/material/theming';
+
+@mixin side-tabs-component-color($config-or-theme) {
+  $config: mat-get-color-config($config-or-theme);
+  $background: map-get($config, background);
+
+  .ath-side-tabs-container {
+    .ath-tab-label {
+      &:hover {
+        background-color: mat-color($background, hover, 0.17);
+      }
+      &--selected {
+        background-color: mat-color($background, hover, 0.12);
+      }
+    }
+  }
+}
+
+@mixin side-tabs-component-theme($theme) {
+  $color: mat-get-color-config($theme);
+
+  @if $color != null {
+    @include side-tabs-component-color($color);
+  }
+}

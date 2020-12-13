@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AthInputModule } from '@bakesaled/athenaeum/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { AthSideTabsModule } from '@bakesaled/athenaeum/side-tabs';
 
 export const MATERIAL_MODULES = [
   MatSidenavModule,
@@ -34,7 +35,11 @@ export const MATERIAL_MODULES = [
   MatButtonToggleModule,
 ];
 
-export const ATHENAEUM_MODULES = [AthTableModule, AthInputModule];
+export const ATHENAEUM_MODULES = [
+  AthTableModule,
+  AthInputModule,
+  AthSideTabsModule,
+];
 
 @NgModule({
   declarations: [],

@@ -18,6 +18,11 @@ const routes: Routes = [
       import('./input/input.module').then((m) => m.InputModule),
   },
   {
+    path: 'side-tabs',
+    loadChildren: () =>
+      import('./side-tabs/side-tabs.module').then((m) => m.SideTabsModule),
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full',
