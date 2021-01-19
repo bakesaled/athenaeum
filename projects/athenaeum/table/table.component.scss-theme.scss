@@ -3,10 +3,18 @@
 @mixin table-component-color($config-or-theme) {
   $config: mat-get-color-config($config-or-theme);
   $primary: map-get($config, primary);
+  $background: map-get($config, background);
 
   tr.mat-header-row {
     > th.mat-header-cell {
-      color: mat-color($primary);
+      background-color: mat-color($primary);
+      color: mat-color($primary, default-contrast);
+    }
+  }
+
+  tr.mat-row {
+    &:hover {
+      background-color: mat-color($background, hover);
     }
   }
 }

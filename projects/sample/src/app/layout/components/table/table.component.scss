@@ -1,12 +1,4 @@
 :host {
   display: block;
   margin: 20px;
-  ::ng-deep tr.mat-header-row > th.mat-header-cell {
-    background-color: #607d8b;
-    color: #fff;
-  }
-
-  ::ng-deep .ath-table table tr.mat-header-row > th.mat-header-cell {
-    padding-top: 3px;
-  }
 }
