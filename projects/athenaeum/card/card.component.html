@@ -1,0 +1,15 @@
+<div
+  class="ath-card-shape"
+  [ngStyle]="{
+    height: diameter,
+    width: diameter,
+    backgroundColor: shapeColor,
+    border: border,
+    color: color
+  }"
+  [ngClass]="shape === 'square' ? 'ath-card-square' : 'ath-card-round'"
+>
+  <div class="ath-card-title">{{ title }}</div>
+  <div class="ath-card-sub-title">{{ subTitle }}</div>
+  <div class="ath-card-super-sub-title">{{ superSubTitle }}</div>
+</div>

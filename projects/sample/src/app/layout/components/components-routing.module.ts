@@ -23,6 +23,10 @@ const routes: Routes = [
       import('./side-tabs/side-tabs.module').then((m) => m.SideTabsModule),
   },
   {
+    path: 'card',
+    loadChildren: () => import('./card/card.module').then((m) => m.CardModule),
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full',

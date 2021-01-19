@@ -17,7 +17,7 @@ export class ComponentsUiQuery extends QueryEntity<ComponentsState> {
     return this.components$.pipe(
       map((components) => {
         return components.find(
-          (c) => c.name.toLowerCase() === name.toLowerCase()
+          (c) => c.name.toLowerCase() === name.toLowerCase().replace('-', '')
         );
       })
     );

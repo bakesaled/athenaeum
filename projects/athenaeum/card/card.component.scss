@@ -1,0 +1,26 @@
+:host {
+  display: block;
+  .ath-card-shape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &.ath-card-round {
+      border-radius: 50%;
+    }
+    &.ath-card-border {
+      border: solid 1px black;
+    }
+    .ath-card-title {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .ath-card-super-sub-title {
+      font-size: 12px;
+      font-style: italic;
+      text-align: center;
+    }
+  }
+}

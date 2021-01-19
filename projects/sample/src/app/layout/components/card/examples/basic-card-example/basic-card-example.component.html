@@ -1,0 +1,33 @@
+<div class="card-container">
+  <ath-card
+    [title]="'Title A'"
+    [subTitle]="'sub-title'"
+    [superSubTitle]="'super sub-title'"
+    [diameterScaleFactor]="1"
+    [shape]="'square'"
+    [color]="'black'"
+    [backgroundColor]="'#ccc'"
+    (click)="onCardClick('Title A')"
+  ></ath-card>
+  <ath-card
+    [title]="'Title B'"
+    [subTitle]="'sub-title'"
+    [superSubTitle]="'super sub-title'"
+    [diameterScaleFactor]="1"
+    [shape]="'circle'"
+    [color]="'white'"
+    [backgroundColor]="'darkorange'"
+    (click)="onCardClick('Title B')"
+  ></ath-card>
+  <ath-card
+    [title]="'Title C'"
+    [subTitle]="'sub-title'"
+    [superSubTitle]="'super sub-title'"
+    [diameterScaleFactor]="1"
+    [shape]="'donut'"
+    [color]="'black'"
+    [backgroundColor]="'#333'"
+    (click)="onCardClick('Title C')"
+  ></ath-card>
+</div>
+<label *ngIf="updatedCard">Selected card -> {{ updatedCard }}</label>

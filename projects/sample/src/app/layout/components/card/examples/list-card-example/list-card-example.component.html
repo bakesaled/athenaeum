@@ -1,0 +1,16 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let acct of accounts$ | async">
+    <ath-card
+      [title]="acct.name"
+      [subTitle]="acct.ledgerBalance?.balanceAmount | currency"
+      [superSubTitle]="acct.ledgerBalance?.balanceAsOf | date"
+      [diameterScaleFactor]="
+        calcCardDiameterScaleFactor(accounts$ | async, acct)
+      "
+      [shape]="calcShape(acct)"
+      [color]="'black'"
+      [backgroundColor]="calcColor()"
+      (click)="onCardClick(acct.id)"
+    ></ath-card>
+  </mat-grid-tile>
+</mat-grid-list>
