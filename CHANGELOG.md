@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/bakesaled/athenaeum/compare/v0.1.6...v0.1.7) (2021-01-20)
+
+
+### Features
+
+* card component ([49ce51b](https://github.com/bakesaled/athenaeum/commit/49ce51b9fbc993dd26ec993dd6a37d35189c25ed))
+* table header and hover color ([6320c38](https://github.com/bakesaled/athenaeum/commit/6320c387bd7ea1bfb8312297e798938efcc44609))
+
+
+### Bug Fixes
+
+* import card ([f27a125](https://github.com/bakesaled/athenaeum/commit/f27a125510bd3c8cda6b1986b62505ee491192a3))
+
 ### [0.1.6](https://github.com/bakesaled/athenaeum/compare/v0.1.5...v0.1.6) (2020-12-13)
 
 
