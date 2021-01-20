@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AthCardComponent } from '@bakesaled/athenaeum/card/card.component';
+import { AthCardComponent } from './card.component';
 
 @NgModule({
   declarations: [AthCardComponent],
