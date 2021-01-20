@@ -14,6 +14,32 @@
     "path": "/components",
     "children": [
       {
+        "text": "Card",
+        "level": 1,
+        "route": "/components/card",
+        "expandable": true,
+        "path": "/components/card",
+        "parentPath": "/components",
+        "children": [
+          {
+            "text": "Basic Example",
+            "level": 2,
+            "route": "/components/card",
+            "fragment": "basic",
+            "path": "/components/card#basic",
+            "parentPath": "/components/card"
+          },
+          {
+            "text": "List Example",
+            "level": 2,
+            "route": "/components/card",
+            "fragment": "list",
+            "path": "/components/card#list",
+            "parentPath": "/components/card"
+          }
+        ]
+      },
+      {
         "text": "Input",
         "level": 1,
         "route": "/components/input",
